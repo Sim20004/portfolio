@@ -11,29 +11,27 @@ body {
     text-align: center;
 }
 
-#title {
-    font-size: 3rem;
-}
-
-.navbar {
-    position: fixed;
-    height: 60px; /* Do not make this px! Make it responsive */
-    top:0;
-    text-align:center; 
-    display: inline-block;   
-    left:0;
-    width:100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     gap: 2em;
+}
+
+.navbar {
+    position: fixed;
+    height: 60px;
+    top:0;
+    text-align:center; 
+    left:0;
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:2rem;
+    padding-right:2rem;
 }
 
 .navbar-link {
@@ -44,6 +42,42 @@ body {
     padding: 0.17em;
 }
 
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #4A4A4A;
+        box-sizing: border-box;
+        padding: 1.5rem 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#title {
+    font-size: 3rem;
+}
+
 #header {
-    top:60px;
+    padding-top:40px;
 }
