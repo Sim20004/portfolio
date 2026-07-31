@@ -1,0 +1,49 @@
+* {
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #4A4A4A;
+}
+
+.centred-text {
+    text-align: center;
+}
+
+#title {
+    font-size: 3rem;
+}
+
+.navbar {
+    position: fixed;
+    height: 60px; /* Do not make this px! Make it responsive */
+    top:0;
+    text-align:center; 
+    display: inline-block;   
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+}
+
+.navbar-link {
+    text-decoration: none;
+    border: 0.2em;
+    border-radius: 10%;
+    border-style: double;
+    padding: 0.17em;
+}
+
+#header {
+    top:60px;
+}
