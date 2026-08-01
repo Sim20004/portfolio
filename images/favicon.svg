@@ -1,0 +1,17 @@
+<svg width="70" height="60" viewBox="0 0 70 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#4A4A4A" />
+  <!-- "ss" text -->
+  <text
+    x="50%"
+    y="50%"
+    fill="#FFFFFF"
+    font-family="Courier New, monospace"
+    font-size="48"
+    letter-spacing="-4"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >
+    ss
+  </text>
+</svg>
