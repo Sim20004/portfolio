@@ -1,0 +1,167 @@
+* {
+    color: #FFFFFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: #4A4A4A;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.centred-text {
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+}
+
+.github-btn,
+.project-card button,
+.codeberg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding: 0.75rem 1.25rem;
+
+    min-height: 44px;
+
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4A4A4A;
+}
+
+.github-btn svg,
+.codeberg-btn svg {
+    width: 2.7rem;
+    height: 2.7rem;
+    fill: currentColor;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.codeberg-btn,
+.github-btn {
+    text-decoration: none;
+    border: 0.2em;
+    border-style: solid;
+    margin-bottom:0.5em;
+    font-size:1.5em;
+}
+
+.navbar {
+    position: fixed;
+    height: 50px;
+    top:0;
+    text-align:center; 
+    left:0;
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:2rem;
+    padding-right:2rem;
+    background-color: #4A4A4A;
+    border-bottom: 1px solid white;
+}
+
+.navbar-link {
+    text-decoration: none;
+    border: 0.2em;
+    border-radius: 10%;
+    border-style: double;
+    padding: 0.17em;
+}
+
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+}
+
+.content-block {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: min(1500px, 95%);
+}
+
+.content-block p,
+.content-block li {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #4A4A4A;
+        box-sizing: border-box;
+        padding: 1.5rem 0;
+    }
+
+    .navbar .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+#whoami,
+#skills,
+#projects {
+    scroll-margin-top: 60px;
+}
+
+#title {
+    font-size: 3rem;
+}
+
+#header {
+    padding-top:40px;
+}

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js" defer></script>
+    <script src="js/script.js" defer></script>
     <title>Portfolio | Simarpreet Singh</title>
 </head>
 <body>
@@ -14,29 +14,96 @@
         <a href="#" class="logo">simarpreetsingh.org</a>
         <button class="hamburger">☰</button>
         <ul class="nav-links">
-            <li><a href="#" class="navbar-link">Link1</a></li>
-            <li><a href="#" class="navbar-link">Link1</a></li>
-            <li><a href="#" class="navbar-link">Link1</a></li>
-            <li><a href="#" class="navbar-link">Link1</a></li>
+            <li><a href="#whoami" class="navbar-link">Who Am I?</a></li>
+            <li><a href="#skills" class="navbar-link">Skills</a></li>
+            <li><a href="#projects" class="navbar-link">Projects</a></li>
+            <li><a href="#" class="navbar-link">N/A</a></li>
         </ul>
     </nav>
 
     <div id="header">
-        <hr>
         <br>
         <h1 id="title" class="centred-text">Portfolio | Simarpreet Singh</h1>
         <h2 class="centred-text">Student Software Developer</h2>
         <br>
         <hr>
     </div>
+<section id="whoami">
+    <h1 class="centred-text"><u>Who Am I?</u></h1>
+    <p class="centred-text content-block" style="font-size:1.5rem;">Hello, my name is Simarpreet Singh, and I'm a student software developer currently studying at Queen Mary's Grammar School in Walsall. I've been fascinated by computers from a young age and enjoy learning how they work, automating repetitive tasks, and building software that solves real-world problems. My interests include programming languages, artificial intelligence, Linux, self-hosting, and open-source software.</p>
+    <hr>
+</section>
+<section class="content-block" id="skills">
+    <h1 class="centred-text"><u>Skills</u></h1>
 
-    <section id="whoami">
-        <h1 class="centred-text"><u>Who Am I?</u></h1>
-        <h2 class="centred-text">Hello, my name is Simarpreet Singh, and I'm a student software developer currently studying at Queen Mary's Grammar School in Walsall. From a young age, I was always fascinated by computers, and was always eager to find out how they worked, how to automate things, and how to make things faster.</h2>
-        <hr>
-        <h1 class="centred-text"><u>Tech Stack</u></h1>
-        <h2 class="centred-text">I focus mainly in the following self-taught languages:<br><br>    • Python<br>    • HTML<br>    • CSS<br>    • Rust<br>    • Java</h2>
-    </section>
+    <p>
+        I work primarily with the following technologies:
+    </p>
+
+    <ul>
+        <li>Python - General software development, automation, ML/AI, and compiler development.</li>
+        <li>HTML & CSS - Frontend web development and responsive websites.</li>
+        <li>Rust - Systems programming and performance-focused applications.</li>
+        <li>Java - Currently learning.</li>
+    </ul>
+</section>  
+<hr>
+<section class="content-block" id="projects">
+    <h1 class="centred-text"><u>Projects</u></h1>
+    <p class="centred-text">Here are some of my highlighted projects that I have worked on over the years:</p>
+    <div style="border:black 4px solid; width:90%; max-width: 1200px; height:auto;overflow:auto; margin:0 auto">
+    <div class="project-grid">
+        <div class="project-card">
+            <img src="images/projects/fossil.svg" alt="Image of the FOSSil Chat logo">
+            <h3>FOSSil Chat</h3>
+            <p>A privacy-focused chat platform written in Rust - created by me and one of my friends, currently in development.</p>
+            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/FOSSil-Chat" rel="noopener noreferrer">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>GitHub</title>
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                View Github Repository (Mirror on my account)
+            </a>
+            <a target="_blank" class="codeberg-btn" href="https://codeberg.org/FOSSil/FOSSil-Chat" rel="noopener noreferrer">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <title>Codeberg</title>
+                    <path d="M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648zz"/>
+                </svg>
+                View Codeberg Repository (Original)
+            </a>
+        </div>
+        <div class="project-card">
+            <img src="images/projects/teapot.svg" alt="Teapot Logo">
+            <h3>Teapot</h3>
+            <p>A memory efficiency-oriented language written in Python - currently in development</p>
+            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/teapot-lang" rel="noopener noreferrer">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    <title>GitHub</title>
+                </svg>
+                View Github Repository
+            </a>
+        </div>
+        <div class="project-card">
+            <img src="images/projects/vlyra.svg" alt="Vlyra Logo">
+            <h3>Vlyra AI</h3>
+            <p>An AI concept that aims to help musicians learn when teachers aren't around to help, giving human-like feedback on technique, intonation, and musicality.</p>
+            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/vlyra-ai">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    <title>GitHub</title>
+                </svg>
+                View Github Repository
+            </a>
+        </div>
+    </div>
+    </div>
+</section>
+
+<footer class="centred-text">
+    <hr>
+    <p>© 2026 Simarpreet Singh</p>
+</footer>
 </body>
 </html>
 
