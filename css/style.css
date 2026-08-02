@@ -21,6 +21,20 @@ html {
   margin: 0 auto;
 }
 
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .timeline::after {
   content: '';
   position: absolute;
