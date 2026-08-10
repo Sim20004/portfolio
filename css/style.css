@@ -243,6 +243,7 @@ html {
     padding-right:2rem;
     background-color: #4A4A4A;
     border-bottom: 1px solid white;
+    z-index: 1000;
 }
 
 .navbar-link {
@@ -300,7 +301,8 @@ html {
 #whoami,
 #skills,
 #projects,
-#timeline {
+#timeline, 
+#client-work {
     scroll-margin-top: 60px;
 }
 
