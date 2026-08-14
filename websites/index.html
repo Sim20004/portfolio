@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Simarpreet's Websites</title>
 
 <style>
@@ -26,7 +27,7 @@ body {
 nav {
     position: sticky;
     top: 0;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid #e2e8f0;
     z-index: 1000;
@@ -41,7 +42,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
 }
 
 .logo {
@@ -92,16 +93,18 @@ section {
     padding: 0.9rem 1.4rem;
     border-radius: 10px;
     font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .button:hover {
     background: #1d4ed8;
+    transform: translateY(-1px);
 }
 
 .grid {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .card {
@@ -111,10 +114,19 @@ section {
     background: white;
 }
 
-.card img {
+.preview {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
+    height: 350px;
+    overflow: hidden;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.preview iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
 
 .card-content {
@@ -135,6 +147,10 @@ section {
     text-decoration: none;
     color: #2563eb;
     font-weight: 600;
+}
+
+.card a:hover {
+    color: #1d4ed8;
 }
 
 .services {
@@ -176,9 +192,14 @@ footer {
     .intro h1 {
         font-size: 2.2rem;
     }
+
+    .preview {
+        height: 300px;
+    }
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -197,6 +218,7 @@ footer {
     </div>
 </nav>
 
+
 <header class="intro">
 
     <div class="container">
@@ -213,6 +235,7 @@ footer {
             href="https://wa.me/message/UL7KZAYIAYBPL1"
             class="button"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Contact on WhatsApp
         </a>
@@ -220,6 +243,7 @@ footer {
     </div>
 
 </header>
+
 
 <section id="work">
 
@@ -231,9 +255,20 @@ footer {
 
         <div class="grid">
 
+
+            <!-- Alisha's Beauty Salon -->
+
             <div class="card">
 
-                <img src="images/alisha-salon.png" alt="Alisha's Beauty Salon">
+                <div class="preview">
+
+                    <iframe
+                        src="https://alishasbeautysalon.netlify.app/"
+                        title="Alisha's Beauty Salon website"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
 
                 <div class="card-content">
 
@@ -244,17 +279,32 @@ footer {
                         business information and contact details.
                     </p>
 
-                    <a href="https://alishasbeautysalon.netlify.app/" target="_blank">
-                        Visit Website →
+                    <a
+                        href="https://alishasbeautysalon.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Website →
                     </a>
 
                 </div>
 
             </div>
 
+
+            <!-- Alisha Supermarket -->
+
             <div class="card">
 
-                <img src="images/alisha-supermarket.png" alt="Alisha Supermarket">
+                <div class="preview">
+
+                    <iframe
+                        src="https://alishasupermarket.netlify.app/"
+                        title="Alisha Supermarket website"
+                        loading="lazy">
+                    </iframe>
+
+                </div>
 
                 <div class="card-content">
 
@@ -265,19 +315,25 @@ footer {
                         information and improve their online presence.
                     </p>
 
-                    <a href="https://alishasupermarket.netlify.app/" target="_blank">
-                        Visit Website →
+                    <a
+                        href="https://alishasupermarket.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open Website →
                     </a>
 
                 </div>
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
+
 
 <section id="services" class="services">
 
@@ -298,6 +354,7 @@ footer {
 
 </section>
 
+
 <section id="contact" class="cta">
 
     <div class="container">
@@ -313,6 +370,7 @@ footer {
             href="https://wa.me/message/UL7KZAYIAYBPL1"
             class="button"
             target="_blank"
+            rel="noopener noreferrer"
         >
             Message Me on WhatsApp
         </a>
@@ -320,6 +378,7 @@ footer {
     </div>
 
 </section>
+
 
 <footer>
     © 2026 Simarpreet's Websites
