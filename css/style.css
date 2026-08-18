@@ -1050,3 +1050,113 @@ footer a:hover {
     }
 
 }
+
+.github-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.github-stat {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-background);
+}
+
+.github-stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.github-stat-label {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+}
+
+.github-activity {
+    margin-top: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.github-activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.github-activity-header h3 {
+    margin: 0;
+}
+
+.github-activity-header a {
+    font-size: 0.9rem;
+}
+
+.github-activity-list {
+    padding: 0 1.5rem;
+}
+
+.github-activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.github-activity-item:last-child {
+    border-bottom: none;
+}
+
+.github-activity-item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.github-activity-item a {
+    font-size: 0.9rem;
+}
+
+.github-activity-item time {
+    white-space: nowrap;
+    color: var(--muted-text);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 800px) {
+
+    .github-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .github-activity-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .github-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .github-activity-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+}
