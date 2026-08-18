@@ -1,261 +1,665 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Simarpreet Singh, a student software developer interested in programming languages, AI, Linux, self-hosting, and open-source software.">
+
+    <meta
+        name="description"
+        content="Portfolio of Simarpreet Singh, a student software developer building software across systems programming, programming languages, web development, AI, Linux, and open source."
+    >
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Simarpreet Singh | Student Developer">
-    <meta property="og:description" content="Student software developer interested in programming languages, AI, Linux, self-hosting, and open-source software.">
+    <meta property="og:title" content="Simarpreet Singh | Student Software Developer">
+    <meta
+        property="og:description"
+        content="Student software developer building software across systems programming, programming languages, web development, AI, Linux, and open source."
+    >
     <meta property="og:image" content="https://simarpreetsingh.org/images/preview.png">
     <meta property="og:url" content="https://simarpreetsingh.org">
     <meta property="og:image:alt" content="Portfolio of Simarpreet Singh">
-    <link rel="preload" href="css/style.css?v=2" as="style">
-    <link rel="stylesheet" href="css/style.css?v=2">
+
+    <link rel="preload" href="css/style.css?v=3" as="style">
+    <link rel="stylesheet" href="css/style.css?v=3">
+
     <link rel="canonical" href="https://simarpreetsingh.org">
     <link rel="icon" href="images/favicon.svg">
+
     <script src="js/script.js" defer></script>
+
     <script type="application/ld+json">
     {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Simarpreet Singh",
-    "url": "https://simarpreetsingh.org",
-    "jobTitle": "Student Software Developer",
-    "sameAs": [
-        "https://github.com/Sim20004",
-        "https://codeberg.org/FOSSil"
-    ]
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Simarpreet Singh",
+        "url": "https://simarpreetsingh.org",
+        "jobTitle": "Student Software Developer",
+        "sameAs": [
+            "https://github.com/Sim20004",
+            "https://codeberg.org/FOSSil"
+        ]
     }
     </script>
-    <title>Portfolio | Simarpreet Singh</title>
+
+    <title>Simarpreet Singh | Student Software Developer</title>
 </head>
+
 <body>
-    <!-- NAVBAR AND TITLE -->
+
+<header class="hero" id="top">
+
     <nav class="navbar">
-        <a href="#" class="logo">simarpreetsingh.org</a>
-        <button class="hamburger" aria-label="Open navigational menu">☰</button>
+        <a href="#top" class="logo">simarpreetsingh.org</a>
+
+        <button
+            class="hamburger"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
         <ul class="nav-links">
-            <li><a href="#whoami" class="navbar-link">Who Am I?</a></li>
-            <li><a href="#skills" class="navbar-link">Skills</a></li>
-            <li><a href="#projects" class="navbar-link">Projects</a></li>
-            <li><a href="#client-work" class="navbar-link">Client Work</a></li>
-            <li><a href="#timeline" class="navbar-link">Timeline</a></li>
-            <li><a href="https://github.com/Sim20004" class="navbar-link" rel="noopener noreferrer" target="_blank">GitHub</a></li>
-            <li><a href="files/Simarpreet_Singh_CV.pdf?v=5" class="navbar-link" rel="noopener noreferrer" target="_blank">Download CV</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#client-work">Client Work</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li>
+                <a
+                    href="https://github.com/Sim20004"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+            </li>
         </ul>
     </nav>
 
-    <div id="header">
-        <h1 id="title" class="centred-text">Simarpreet Singh</h1>
-        <h2 class="centred-text">Student Software Developer</h2>
-        <div class="hero-buttons">
-            <a href="files/Simarpreet_Singh_CV.pdf?v=5" class="navbar-link" target="_blank" rel="noopener noreferrer">Download CV</a>
-            <a href="#projects" class="navbar-link">View Projects</a>
-        </div>
-        <hr>
-    </div>
-<section id="whoami">
-    <h1 class="centred-text">Who Am I?</h1>
-    <p id="intro" class="centred-text content-block">Hello, my name is Simarpreet Singh, and I'm a student software developer currently studying at Queen Mary's Grammar School in Walsall. I've been fascinated by computers from a young age and enjoy learning how they work, automating repetitive tasks, and building software that solves real-world problems. My interests include programming languages, artificial intelligence, Linux, self-hosting, and open-source. 
-    Outside of programming, I'm a Grade 5 pianist, Grade 6 clarinetist, and composer - my "Waltzes of the Seasons" is an original set for piano. I also placed first nationally in a Mandarin competition and was invited to speak with UK-China relations officials as a result.</p>
-    <hr>
-</section>
-<section class="content-block" id="skills">
-    <h1 class="centred-text">Skills</h1>
+    <div class="hero-content">
 
-    <p>
-        I work primarily with the following technologies:
-    </p>
+        <p class="eyebrow">STUDENT SOFTWARE DEVELOPER</p>
 
-    <ul>
-        <li>Python - General software development, automation, ML/AI, and compiler development.</li>
-        <li>HTML & CSS - Frontend web development and responsive websites.</li>
-        <li>Rust - Systems programming and performance-focused applications.</li>
-        <li>x86-64 NASM - Low-level systems programming, bootloaders, and kernels.</li> 
-        <li>Java - Currently learning.</li>
-    </ul>
-</section>  
-<hr>
-<section class="content-block" id="projects">
-    <h1 class="centred-text">Projects</h1>
-    <p class="centred-text">Here are some of my highlighted projects that I have worked on over the years:</p>
-    <div class="project-grid">
-            <div class="project-card">
-            <img src="images/projects/teapotos.svg" alt="TeapotOS Logo" loading="lazy">
-            <h3>TeapotOS</h3>
-            <p>An OS designed for compatibility, aiming to support Windows, Linux, and even MacOS binaries - currently in development.</p>
-            <p><b>Tech Stack:</b> Assembly</p>
-            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/teapot-os" rel="noopener noreferrer">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                    <title>GitHub</title>
-                </svg>
-                View GitHub Repository
-            </a>
-        </div>
-     
-        <div class="project-card">
-            <img src="images/projects/teapot.svg" alt="TeapotLang Logo" loading="lazy">
-            <h3>TeapotLang</h3>
-            <p>A memory efficiency-oriented language written in Python - currently in development</p>
-            <p><b>Tech Stack:</b> Python, Lexer Development, Parser Development, AST Design, Compiler Construction</p>
-            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/teapot-lang" rel="noopener noreferrer">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                    <title>GitHub</title>
-                </svg>
-                View GitHub Repository
-            </a>
-        </div>
-   <div class="project-card">
-            <img src="images/projects/fossil.svg" alt="FOSSil Chat logo" loading="lazy">
-            <h3>FOSSil Chat</h3>
-            <p>A privacy-focused chat platform written in Rust - created by me and one of my friends, currently in development.</p>
-            <p><b>Tech Stack:</b> Rust, Tokio, TCP Networking, Serde</p>
-            <a class="github-btn" target="_blank" href="https://github.com/Sim20004/FOSSil-Chat" rel="noopener noreferrer">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>GitHub</title>
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                </svg>
-                View GitHub Repository (Mirror on my account)
-            </a>
-            <a target="_blank" class="codeberg-btn" href="https://codeberg.org/FOSSil/FOSSil-Chat" rel="noopener noreferrer">
-                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <title>Codeberg</title>
-                    <path d="M11.999.747A11.974 11.974 0 0 0 0 12.75c0 2.254.635 4.465 1.833 6.376L11.837 6.19c.072-.092.251-.092.323 0l4.178 5.402h-2.992l.065.239h3.113l.882 1.138h-3.674l.103.374h3.86l.777 1.003h-4.358l.135.483h4.593l.695.894h-5.038l.165.589h5.326l.609.785h-5.717l.182.65h6.038l.562.727h-6.397l.183.65h6.717A12.003 12.003 0 0 0 24 12.75 11.977 11.977 0 0 0 11.999.747zm3.654 19.104.182.65h5.326c.173-.204.353-.433.513-.65zm.385 1.377.18.65h3.563c.233-.198.485-.428.712-.65zm.383 1.377.182.648h1.203c.356-.204.685-.412 1.042-.648zz"/>
-                </svg>
-                View Codeberg Repository (Original)
-            </a>
-        </div>
-    </div>
-</section>
+        <h1>
+            Simarpreet Singh
+        </h1>
 
-<hr>
-<section class="content-block" id="client-work">
-    <h1 class="centred-text">Client Work</h1>
-    <p class="centred-text">Alongside my personal projects, I run a freelance web design service for small local businesses across the West Midlands, handling everything from initial client scoping to deployment.</p>
-    <div class="project-grid">
-        <div class="project-card">
-            <h3>Alisha's Beauty Salon</h3>
-            <p>Built an informational site for a hair salon based in Walsall, including modern CSS styling and responsive design.</p>
-            <p><b>Tech Stack:</b> HTML, CSS</p>
-            <a class="github-btn" target="_blank" href="https://alishasbeautysalon.netlify.app" rel="noopener noreferrer">Live Site</a>
-        </div>
-    </div>
-    <p class="centred-text">I've also built internal tools to support this work, including a demo site generator that lets me quickly produce working previews for prospective clients before they commit.</p>
-</section>
+        <h2>
+            Building software and exploring how computers work.
+        </h2>
 
-
-<section id="timeline">
-    <hr>
-    <h1 class="centred-text">Timeline</h1>
-    <div id="timeline-scroll">
-    <div class="timeline">
-        <div class="container left">
-            <div class="content">
-                <h2>March 2023</h2>
-                <p>Started planning and creating prototypes for FOSSil Chat.</p>
-            </div>
-        </div>
-
-        <div class="container right">
-            <div class="content">
-                <h2>July 2023</h2>
-                <p>Experimented with networking concepts and early messaging protocols.</p>
-            </div>
-        </div>
-
-        <div class="container left">
-            <div class="content">
-                <h2>January 2024</h2>
-                <p>Created the initial Teapot language specification.</p>
-            </div>
-        </div>
-
-        <div class="container right">
-            <div class="content">
-                <h2>June 2024</h2>
-                <p>Refined the language design and expanded the planned feature set.</p>
-            </div>
-        </div>
-
-        <div class="container left">
-            <div class="content">
-                <h2>February 2025</h2>
-                <p>Started learning Rust and exploring systems programming concepts.</p>
-            </div>
-        </div>
-
-        <div class="container right">
-            <div class="content">
-                <h2>September 2025</h2>
-                <p>Began developing the first components of the Teapot compiler.</p>
-            </div>
-        </div>
-
-        <div class="container left">
-            <div class="content">
-                <h2>April 2026</h2>
-                <p>Published early versions of FOSSil Chat and gathered feedback.</p>
-            </div>
-        </div>
-        
-        <div class="container right">
-            <div class="content">
-                <h2>June 2026</h2>
-                <p>Began freelance web development work for local businesses in the West Midlands.</p>
-            </div>
-        </div>
-
-        <div class="container left">
-            <div class="content">
-                <h2>August 2026</h2>
-                <p>Started the TeapotOS project.</p>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-</section>
-<section id="contact">
-    <hr>
-    <h1 class="centred-text">Contact</h1>
-
-    <p class="content-block centred-text">
-        Thank you for visiting my portfolio.
-    </p>
-
-    <p class="content-block centred-text">
-        Whether you have a question about one of my projects, would like to collaborate,
-        or simply want to connect, I'd be happy to hear from you.
-    </p>
-
-    <div class="content-block centred-text">
-        <p>
-            <strong>Email:</strong>
-            <a href="mailto:me@simarpreetsingh.org">me@simarpreetsingh.org</a>
+        <p class="hero-description">
+            I build software across systems programming, programming languages,
+            web development, AI, Linux, and open source.
         </p>
 
-        <p>
-            <strong>GitHub:</strong>
-            <a href="https://github.com/Sim20004" target="_blank" rel="noopener noreferrer">
-                github.com/Sim20004
+        <div class="hero-actions">
+            <a href="#projects" class="button button-primary">
+                View my work
             </a>
-        </p>
 
-        <p>
-            <strong>CV:</strong>
-            <a href="files/Simarpreet_Singh_CV.pdf?v=5" target="_blank" rel="noopener noreferrer">
+            <a
+                href="files/Simarpreet_Singh_CV.pdf?v=6"
+                class="button button-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 Download CV
             </a>
+        </div>
+
+        <div class="hero-links">
+            <a
+                href="https://github.com/Sim20004"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+
+            <span>•</span>
+
+            <a href="mailto:me@simarpreetsingh.org">
+                Email
+            </a>
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section id="about" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>Curious about what's underneath.</h2>
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            I'm a student software developer based in Walsall, UK, with a
+            particular interest in understanding how software works at a
+            fundamental level.
+        </p>
+
+        <p>
+            I enjoy building things rather than simply using them. My projects
+            range from programming languages and operating-system development
+            to networking, web development, artificial intelligence, and
+            open-source software.
+        </p>
+
+        <p>
+            I'm constantly learning, experimenting with new technologies,
+            and turning ideas into working software.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="skills" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">TECHNOLOGIES</p>
+        <h2>What I work with.</h2>
+    </div>
+
+    <div class="skills-list">
+
+        <article class="skill-card">
+            <span class="skill-number">01</span>
+            <div>
+                <h3>Python</h3>
+                <p>
+                    Software development, automation, AI/ML, and compiler
+                    development.
+                </p>
+            </div>
+        </article>
+
+        <article class="skill-card">
+            <span class="skill-number">02</span>
+            <div>
+                <h3>Rust</h3>
+                <p>
+                    Systems programming, networking, and performance-focused
+                    applications.
+                </p>
+            </div>
+        </article>
+
+        <article class="skill-card">
+            <span class="skill-number">03</span>
+            <div>
+                <h3>Web Development</h3>
+                <p>
+                    HTML, CSS, responsive design, and deployment.
+                </p>
+            </div>
+        </article>
+
+        <article class="skill-card">
+            <span class="skill-number">04</span>
+            <div>
+                <h3>x86-64 NASM</h3>
+                <p>
+                    Low-level programming, bootloaders, kernels, and computer
+                    architecture.
+                </p>
+            </div>
+        </article>
+
+        <article class="skill-card">
+            <span class="skill-number">05</span>
+            <div>
+                <h3>Java</h3>
+                <p>
+                    Currently learning object-oriented programming and the
+                    Java ecosystem.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="projects" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>Projects I've built.</h2>
+        <p>
+            A selection of projects exploring different areas of software
+            development.
         </p>
     </div>
+
+    <div class="project-grid">
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <img
+                    src="images/projects/teapotos.svg"
+                    alt="TeapotOS logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="project-content">
+
+                <span class="project-label">SYSTEMS</span>
+
+                <h3>TeapotOS</h3>
+
+                <p>
+                    An experimental operating system exploring compatibility
+                    and low-level system design, with the long-term goal of
+                    supporting software from multiple platforms.
+                </p>
+
+                <div class="tech-tags">
+                    <span>Assembly</span>
+                    <span>x86-64</span>
+                    <span>Operating Systems</span>
+                </div>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/Sim20004/teapot-os"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View repository
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <img
+                    src="images/projects/teapot.svg"
+                    alt="TeapotLang logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="project-content">
+
+                <span class="project-label">PROGRAMMING LANGUAGES</span>
+
+                <h3>TeapotLang</h3>
+
+                <p>
+                    A memory-efficiency-oriented programming language and
+                    compiler project, developed from the lexer and parser
+                    upwards.
+                </p>
+
+                <div class="tech-tags">
+                    <span>Python</span>
+                    <span>Compiler</span>
+                    <span>AST</span>
+                </div>
+
+                <a
+                    class="project-link"
+                    href="https://github.com/Sim20004/teapot-lang"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View repository
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <article class="project-card">
+
+            <div class="project-image">
+                <img
+                    src="images/projects/fossil.svg"
+                    alt="FOSSil Chat logo"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="project-content">
+
+                <span class="project-label">NETWORKING</span>
+
+                <h3>FOSSil Chat</h3>
+
+                <p>
+                    A privacy-focused chat platform built with a friend,
+                    exploring networking, asynchronous Rust, and open-source
+                    software development.
+                </p>
+
+                <div class="tech-tags">
+                    <span>Rust</span>
+                    <span>Tokio</span>
+                    <span>TCP</span>
+                    <span>Serde</span>
+                </div>
+
+                <div class="project-links">
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/Sim20004/FOSSil-Chat"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub (Read-only mirror)
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://codeberg.org/FOSSil/FOSSil-Chat"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Codeberg
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
 </section>
-<footer class="centred-text">
-    <hr>
-    <p>© 2026 Simarpreet Singh</p>
+
+
+<section id="client-work" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">FREELANCE DEVELOPMENT</p>
+        <h2>Websites for real businesses.</h2>
+        <p>
+            Alongside my personal projects, I build websites for small local
+            businesses across the West Midlands.
+        </p>
+    </div>
+
+    <div class="client-grid">
+
+        <article class="client-card">
+
+            <div class="client-info">
+
+                <span class="project-label">WALSALL</span>
+
+                <h3>Alisha's Beauty Salon</h3>
+
+                <p>
+                    An informational website for a local hair salon,
+                    designed to present the business clearly and work across
+                    desktop and mobile devices.
+                </p>
+
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Responsive Design</span>
+                </div>
+
+                <a
+                    class="project-link"
+                    href="https://alishasbeautysalon.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="site-preview">
+                <iframe
+                    src="https://alishasbeautysalon.netlify.app"
+                    title="Preview of Alisha's Beauty Salon website"
+                    loading="lazy"
+                ></iframe>
+            </div>
+
+        </article>
+
+
+        <article class="client-card">
+
+            <div class="client-info">
+
+                <span class="project-label">WOLVERHAMPTON</span>
+
+                <h3>Alisha Supermarket</h3>
+
+                <p>
+                    A landing page for a Polish goods store, providing
+                    customers with a simple and professional online presence.
+                </p>
+
+                <div class="tech-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Responsive Design</span>
+                </div>
+
+                <a
+                    class="project-link"
+                    href="https://alishasupermarket.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit website
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+            <div class="site-preview">
+                <iframe
+                    src="https://alishasupermarket.netlify.app"
+                    title="Preview of Alisha Supermarket website"
+                    loading="lazy"
+                ></iframe>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="timeline" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">MY JOURNEY</p>
+        <h2>Learning by building.</h2>
+    </div>
+
+    <div class="timeline">
+
+        <article class="timeline-item">
+            <span>MAR 2023</span>
+            <div>
+                <h3>FOSSil Chat begins</h3>
+                <p>
+                    Started planning and prototyping FOSSil Chat.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>JAN 2024</span>
+            <div>
+                <h3>TeapotLang specification</h3>
+                <p>
+                    Created the initial specification for the Teapot
+                    programming language.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>FEB 2025</span>
+            <div>
+                <h3>Started learning Rust</h3>
+                <p>
+                    Began exploring systems programming and Rust.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>SEP 2025</span>
+            <div>
+                <h3>Teapot compiler</h3>
+                <p>
+                    Began implementing the first components of the Teapot
+                    compiler.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>APR 2026</span>
+            <div>
+                <h3>FOSSil releases</h3>
+                <p>
+                    Published early versions of FOSSil Chat and gathered
+                    feedback.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>JUN 2026</span>
+            <div>
+                <h3>Freelance development</h3>
+                <p>
+                    Began building websites for local businesses in the
+                    West Midlands.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item">
+            <span>AUG 2026</span>
+            <div>
+                <h3>TeapotOS</h3>
+                <p>
+                    Started developing TeapotOS and exploring operating
+                    system development.
+                </p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="contact-section">
+
+    <div class="contact-card">
+
+        <p class="eyebrow">GET IN TOUCH</p>
+
+        <h2>
+            Have a project or opportunity?
+        </h2>
+
+        <p>
+            Whether you'd like to discuss a project, collaborate on software,
+            or simply get in touch, I'd be happy to hear from you.
+        </p>
+
+        <div class="contact-actions">
+
+            <a
+                href="mailto:me@simarpreetsingh.org"
+                class="button button-primary"
+            >
+                Email me
+            </a>
+
+            <a
+                href="files/Simarpreet_Singh_CV.pdf?v=6"
+                class="button button-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View CV
+            </a>
+
+        </div>
+
+        <p class="contact-email">
+            me@simarpreetsingh.org
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Simarpreet Singh
+    </p>
+
+    <div>
+        <a
+            href="https://github.com/Sim20004"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub
+        </a>
+
+        <a
+            href="https://codeberg.org/FOSSil"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Codeberg
+        </a>
+
+        <a href="mailto:me@simarpreetsingh.org">
+            Email
+        </a>
+    </div>
+
 </footer>
+
 </body>
 </html>

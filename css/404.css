@@ -1,25 +1,218 @@
+/* =========================
+   404 PAGE
+   ========================= */
+
 .error-page {
-    padding-top: 90px; /* clears the fixed 50px navbar + breathing room */
+    min-height: calc(100vh - 64px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(900px, 90%);
+
+    margin: 0 auto;
+
+    padding: 100px 0 60px;
+
     text-align: center;
-    max-width: 700px;
 }
 
-#error-code {
-    font-size: 8rem;
-    line-height: 1;
+.error-content {
+    width: min(700px, 100%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =========================
+   ERROR CODE
+   ========================= */
+
+.error-label {
+    margin: 0 0 0.5rem;
+
+    color: var(--accent);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.25em;
+}
+
+.error-code {
     margin: 0;
-    letter-spacing: 0.05em;
-    border: 0.2em solid #FFFFFF;
+
+    font-size: clamp(7rem, 20vw, 12rem);
+    line-height: 0.9;
+
+    letter-spacing: -0.08em;
+
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        var(--text)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.error-content h2 {
+    margin: 1.5rem 0 0.75rem;
+
+    color: var(--text);
+
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+}
+
+.error-description {
+    width: min(600px, 100%);
+
+    margin: 0;
+
+    color: var(--subtext-0);
+
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   ACTIONS
+   ========================= */
+
+.error-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.75rem;
+
+    margin-top: 2rem;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 0.7rem 1.2rem;
+
     border-radius: 8px;
-    display: inline-block;
-    padding: 0.2em 0.6em;
-}
 
-.error-page h1 {
-    font-size: 2rem;
-    margin: 1rem 0 1.5rem;
-}
+    font-size: 0.9rem;
+    font-weight: 700;
 
-.error-page .github-btn {
     text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Primary action */
+
+.primary-button {
+    color: var(--bg-crust);
+
+    background: var(--accent);
+
+    border: 1px solid var(--accent);
+}
+
+.primary-button:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+
+    transform: translateY(-2px);
+}
+
+
+/* Secondary action */
+
+.secondary-button {
+    color: var(--subtext-1);
+
+    background: var(--surface-0);
+
+    border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+    color: var(--text);
+
+    background: var(--surface-1);
+
+    border-color: var(--border-strong);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.error-footer {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    padding: 1.5rem 0;
+
+    text-align: center;
+
+    border-top: 1px solid var(--border);
+}
+
+.error-footer p {
+    margin: 0;
+
+    color: var(--subtext-0);
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 500px) {
+    .error-page {
+        min-height: calc(100vh - 64px);
+
+        padding: 80px 0 40px;
+    }
+
+    .error-code {
+        font-size: 7rem;
+    }
+
+    .error-content h2 {
+        margin-top: 1.25rem;
+    }
+
+    .error-actions {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: min(300px, 100%);
+    }
 }
