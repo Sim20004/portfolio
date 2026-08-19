@@ -397,57 +397,65 @@
 
     <div class="section-heading">
         <p class="eyebrow">OPEN SOURCE</p>
+
         <h2>Building in public.</h2>
+
         <p>
-            Recent activity and statistics from my public GitHub repositories.
+            Recent activity and contributions from my public GitHub projects.
         </p>
     </div>
 
-    <div class="github-stats" id="github-stats">
 
-        <article class="github-stat">
-            <span class="github-stat-number" id="github-repos">--</span>
-            <span class="github-stat-label">Public repositories</span>
-        </article>
+    <!-- GitHub Contribution Graph -->
 
-        <article class="github-stat">
-            <span class="github-stat-number" id="github-stars">--</span>
-            <span class="github-stat-label">Stars earned</span>
-        </article>
+    <div class="github-graph-wrapper">
 
-        <article class="github-stat">
-            <span class="github-stat-number" id="github-forks">--</span>
-            <span class="github-stat-label">Forks</span>
-        </article>
-
-        <article class="github-stat">
-            <span class="github-stat-number" id="github-commits">--</span>
-            <span class="github-stat-label">Recent commits</span>
-        </article>
+        <div
+            id="gh"
+            data-login="Sim20004"
+            data-show-header="false"
+            data-show-footer="true"
+            data-show-thumbnail="false"
+        ></div>
 
     </div>
 
-    <div class="github-activity">
 
-        <div class="github-activity-header">
-            <h3>Latest activity</h3>
+    <!-- GitHub Profile -->
 
-            <a
-                href="https://github.com/Sim20004"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                View GitHub profile ↗
-            </a>
+    <div class="github-profile-card">
+
+        <div class="github-profile-content">
+
+            <span class="project-label">GITHUB</span>
+
+            <h3>Open-source development.</h3>
+
+            <p>
+                I actively build and contribute to open-source software,
+                working across programming languages, systems programming,
+                Linux, networking, and web development.
+            </p>
+
         </div>
 
-        <div id="github-activity-list" class="github-activity-list">
-            <p>Loading GitHub activity...</p>
-        </div>
+        <a
+            class="project-link"
+            href="https://github.com/Sim20004"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            View my GitHub profile
+            <span>↗</span>
+        </a>
 
     </div>
 
 </section>
+
+
+<!-- GitHub Contribution Graph Library -->
+<script src="js/browser.global.js"></script>
 
 <section id="client-work" class="section">
 
