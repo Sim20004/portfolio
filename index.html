@@ -393,52 +393,78 @@
 
 </section>
 
-<section class="heatmap-card" id="commit-heatmap">
-  <div class="heatmap-header">
-    <div class="heatmap-title">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fab387" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 12h4l3 8l4 -16l3 8h4" />
-      </svg>
-      <span>Commit Activity</span>
-      <span class="heatmap-badge" id="heatmap-live-badge" hidden>live</span>
-    </div>
-    <a class="heatmap-profile-link" id="heatmap-profile-link" href="#" target="_blank" rel="noopener noreferrer">
-      github.com/
-    </a>
-  </div>
+<section id="github" class="section github-section">
 
-  <div class="heatmap-total" id="heatmap-total">Loading contribution history…</div>
-
-  <div class="heatmap-scroll">
-    <div class="heatmap-grid-wrap">
-      <div class="heatmap-months" id="heatmap-months"></div>
-      <div class="heatmap-body">
-        <div class="heatmap-daylabels">
-          <span></span>
-          <span>Mon</span>
-          <span></span>
-          <span>Wed</span>
-          <span></span>
-          <span>Fri</span>
-          <span></span>
+        <div class="section-heading">
+                <p class="eyebrow">OPEN SOURCE</p>
+                <h2>A year of building in public.</h2>
+                <p>Recent work and contribution activity from GitHub, updated when you visit.</p>
         </div>
-        <div class="heatmap-weeks" id="heatmap-weeks"></div>
-      </div>
-    </div>
-  </div>
 
-  <div class="heatmap-legend">
-    <span>Less</span>
-    <div class="heatmap-legend-swatch" data-level="0"></div>
-    <div class="heatmap-legend-swatch" data-level="1"></div>
-    <div class="heatmap-legend-swatch" data-level="2"></div>
-    <div class="heatmap-legend-swatch" data-level="3"></div>
-    <div class="heatmap-legend-swatch" data-level="4"></div>
-    <span>More</span>
-  </div>
+        <div class="github-dashboard">
+                <div class="heatmap-card" id="commit-heatmap">
+                        <div class="heatmap-header">
+                                <div class="heatmap-title">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <path d="M3 12h4l3 8l4 -16l3 8h4" />
+                                        </svg>
+                                        <span>Commit activity</span>
+                                        <span class="heatmap-badge" id="heatmap-live-badge" hidden>live</span>
+                                </div>
+                                <a class="heatmap-profile-link" id="heatmap-profile-link" href="#" target="_blank" rel="noopener noreferrer">
+                                        github.com/
+                                </a>
+                        </div>
 
-  <div class="heatmap-tooltip" id="heatmap-tooltip" hidden></div>
+                        <div class="heatmap-total" id="heatmap-total">Loading contribution history...</div>
+
+                        <div class="heatmap-scroll">
+                                <div class="heatmap-grid-wrap">
+                                        <div class="heatmap-months" id="heatmap-months"></div>
+                                        <div class="heatmap-body">
+                                                <div class="heatmap-daylabels" aria-hidden="true">
+                                                        <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+                                                </div>
+                                                <div class="heatmap-weeks" id="heatmap-weeks"></div>
+                                        </div>
+                                </div>
+                        </div>
+
+                        <div class="heatmap-legend" aria-label="Contribution intensity">
+                                <span>Less</span>
+                                <div class="heatmap-legend-swatch" data-level="0"></div>
+                                <div class="heatmap-legend-swatch" data-level="1"></div>
+                                <div class="heatmap-legend-swatch" data-level="2"></div>
+                                <div class="heatmap-legend-swatch" data-level="3"></div>
+                                <div class="heatmap-legend-swatch" data-level="4"></div>
+                                <span>More</span>
+                        </div>
+
+                        <div class="heatmap-tooltip" id="heatmap-tooltip" hidden></div>
+                </div>
+
+                <div class="github-activity">
+                        <div class="github-stats" aria-label="GitHub statistics">
+                                <article class="github-stat"><span>Public repos</span><strong id="github-repos">--</strong></article>
+                                <article class="github-stat"><span>Stars earned</span><strong id="github-stars">--</strong></article>
+                                <article class="github-stat"><span>Followers</span><strong id="github-followers">--</strong></article>
+                                <article class="github-stat"><span>Following</span><strong id="github-following">--</strong></article>
+                        </div>
+
+                        <article class="activity-card" id="github-last-pr">
+                                <span class="activity-label">Last pull request</span>
+                                <a class="activity-title" id="github-pr-title" href="https://github.com/Sim20004" target="_blank" rel="noopener noreferrer">Loading...</a>
+                                <span class="activity-meta" id="github-pr-meta">Checking recent activity</span>
+                        </article>
+
+                        <article class="activity-card" id="github-last-commit">
+                                <span class="activity-label">Last commit</span>
+                                <a class="activity-title" id="github-commit-title" href="https://github.com/Sim20004" target="_blank" rel="noopener noreferrer">Loading...</a>
+                                <span class="activity-meta" id="github-commit-meta">Checking recent activity</span>
+                        </article>
+                </div>
+        </div>
 </section>
 
 <script src="js/heatmap.js" defer></script>

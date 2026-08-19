@@ -1051,19 +1051,34 @@ footer a:hover {
 
 }
 
+.github-dashboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: stretch;
+    min-width: 0;
+}
+
+.github-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
 #commit-heatmap {
   --hm-cell: 11px;
   --hm-gap: 3px;
   --hm-daylabel-width: 28px;
 
   width: 100%;
-  max-width: 780px;
-  margin: 0 auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    container-type: inline-size;
   box-sizing: border-box;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 24px 24px;
+    padding: 16px 20px 18px;
   box-shadow: var(--shadow);
   color: var(--text);
   font-family: "JetBrains Mono", monospace;
@@ -1138,65 +1153,163 @@ footer a:hover {
   color: #777e98;
 }
 
-/* Grid */
+.github-activity {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.github-stats {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    overflow: hidden;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    min-width: 0;
+}
+
+.github-stat {
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    background: var(--surface);
+    min-width: 0;
+}
+
+.github-stat span,
+.activity-label {
+    color: var(--muted);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.github-stat strong {
+    color: var(--accent);
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.activity-card {
+    min-height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    min-width: 0;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.activity-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+}
+
+.activity-title {
+    overflow: hidden;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.activity-title:hover {
+    color: var(--accent);
+}
+
+.activity-meta {
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .heatmap-scroll {
-  overflow-x: auto;
-  padding-bottom: 4px;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 2px;
 }
 
 .heatmap-grid-wrap {
-  position: relative;
-  min-width: max-content;
-}
-
-.heatmap-months {
-  position: relative;
-  height: 14px;
-  margin-left: var(--hm-daylabel-width);
-}
-
-.heatmap-months span {
-  position: absolute;
-  top: 0;
-  font-size: 10px;
-  color: var(--muted);
-  white-space: nowrap;
+    position: relative;
+    width: 100%;
+    min-width: 0;
 }
 
 .heatmap-body {
-  display: flex;
-}
-
-.heatmap-daylabels {
-  width: var(--hm-daylabel-width);
-  display: flex;
-  flex-direction: column;
-  gap: var(--hm-gap);
-}
-
-.heatmap-daylabels span {
-  height: var(--hm-cell);
-  line-height: var(--hm-cell);
-  font-size: 9px;
-  color: #777e98;
+    display: flex;
+    min-width: 0;
 }
 
 .heatmap-weeks {
-  display: flex;
-  gap: var(--hm-gap);
+    display: flex;
+    gap: var(--hm-gap);
+}
+
+.heatmap-months {
+    position: relative;
+    height: 14px;
+    margin-left: var(--hm-daylabel-width);
+}
+
+.heatmap-months span {
+    position: absolute;
+    top: 0;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.heatmap-daylabels {
+    width: var(--hm-daylabel-width);
+    flex: 0 0 var(--hm-daylabel-width);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hm-gap);
+}
+
+.heatmap-daylabels span {
+    height: var(--hm-cell);
+    line-height: var(--hm-cell);
+    font-size: 9px;
+    color: #777e98;
+}
+
+.heatmap-weeks {
+    display: flex;
+    gap: var(--hm-gap);
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
 }
 
 .heatmap-week {
-  display: flex;
-  flex-direction: column;
-  gap: var(--hm-gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hm-gap);
+    flex: 0 0 var(--hm-cell);
 }
 
 .heatmap-day {
-  width: var(--hm-cell);
-  height: var(--hm-cell);
-  border-radius: 2px;
-  background: transparent;
+    width: var(--hm-cell);
+    height: var(--hm-cell);
+    flex: 0 0 var(--hm-cell);
+    border-radius: 2px;
+    background: transparent;
 }
 
 .heatmap-day.has-data {
@@ -1259,9 +1372,48 @@ footer a:hover {
   font-weight: 700;
 }
 
+@container (max-width: 760px) {
+    #commit-heatmap {
+        --hm-cell: 8px;
+        --hm-gap: 2px;
+        --hm-daylabel-width: 25px;
+    }
+}
+
+@container (max-width: 470px) {
+    #commit-heatmap {
+        --hm-cell: 5px;
+        --hm-gap: 1px;
+        --hm-daylabel-width: 22px;
+    }
+}
+
 @media (max-width: 700px) {
+    .github-dashboard {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #commit-heatmap {
+        --hm-cell: 5px;
+        --hm-gap: 1px;
+        --hm-daylabel-width: 22px;
+    }
+
+    .github-activity,
+    .github-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .github-stats {
+        grid-column: 1 / -1;
+    }
+
   #commit-heatmap {
-    padding: 16px 16px 20px;
+        padding: 14px 14px 16px;
   }
+
+    .github-activity {
+        gap: 0.65rem;
+    }
 }
 

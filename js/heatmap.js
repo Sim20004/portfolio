@@ -27,42 +27,6 @@
     return d.toISOString().slice(0, 10);
   }
 
-  // Deterministic pseudo-random generator seeded by a string, so the
-  // fallback view looks the same on every reload instead of flickering.
-  function seededRandom(seed) {
-    var h = 0;
-    for (var i = 0; i < seed.length; i++) {
-      h = (Math.imul(31, h) + seed.charCodeAt(i)) | 0;
-    }
-    return function () {
-      h = (Math.imul(h, 48271) + 1) % 2147483647;
-      return (h & 0x7fffffff) / 2147483647;
-    };
-  }
-
-  function buildFallbackData(username) {
-    var rand = seededRandom(username || "guest");
-    var today = new Date();
-    var start = new Date(today);
-    start.setDate(start.getDate() - 371); // ~53 weeks back, GitHub-aligned
-    var days = [];
-    for (var t = start.getTime(); t <= today.getTime(); t += DAY_MS) {
-      var d = new Date(t);
-      var dow = d.getDay();
-      var weekendDamp = dow === 0 || dow === 6 ? 0.4 : 1;
-      var streaky = Math.sin(t / (DAY_MS * 9)) * 0.5 + 0.5;
-      var r = rand();
-      var count = 0;
-      if (r < 0.28 * weekendDamp) {
-        count = 0;
-      } else {
-        count = Math.round(streaky * r * 11 * weekendDamp);
-      }
-      days.push({ date: toISODate(d), count: count });
-    }
-    return days;
-  }
-
   // Groups a flat array of {date,count} into GitHub-style weeks (7-day columns, Sun-Sat)
   function groupIntoWeeks(days) {
     if (!days.length) return [];
@@ -124,21 +88,17 @@
     els.tooltip.hidden = true;
   }
 
-  function render(days, isLive) {
+  function render(days) {
     var weeks = groupIntoWeeks(days);
     var maxCount = days.reduce(function (m, d) { return Math.max(m, d.count); }, 0);
     var total = days.reduce(function (s, d) { return s + d.count; }, 0);
 
     // Total line
-    els.total.innerHTML =
-      "<strong>" + total.toLocaleString() + "</strong> contributions in the last year" +
-      (isLive
-        ? ""
-        : ' <span class="heatmap-fallback-note">(showing sample data -- live fetch failed or user has no public history)</span>');
+    els.total.innerHTML = "<strong>" + total.toLocaleString() + "</strong> contributions in the last year";
+    els.liveBadge.hidden = false;
 
-    els.liveBadge.hidden = !isLive;
-
-    // Month labels: find which week-column each month first appears in
+    // Month labels are positioned after the week columns render so responsive
+    // spacing and cell sizes remain aligned.
     els.months.innerHTML = "";
     var lastMonth = null;
     weeks.forEach(function (week, wi) {
@@ -148,7 +108,7 @@
       if (m !== lastMonth) {
         var span = document.createElement("span");
         span.textContent = MONTH_LABELS[m];
-        span.style.left = (wi * (cell + gap)) + "px";
+        span.dataset.week = String(wi);
         els.months.appendChild(span);
         lastMonth = m;
       }
@@ -179,6 +139,11 @@
       });
       els.weeks.appendChild(weekEl);
     });
+
+    Array.prototype.forEach.call(els.months.children, function (span) {
+      var week = els.weeks.children[Number(span.dataset.week)];
+      span.style.left = week ? week.offsetLeft + "px" : "0px";
+    });
   }
 
   function load(username) {
@@ -201,12 +166,96 @@
         var normalized = contributions.map(function (c) {
           return { date: c.date, count: c.count };
         });
-        render(normalized, true);
+        render(normalized);
       })
       .catch(function () {
-        render(buildFallbackData(username), false);
+        els.total.textContent = "Contribution history is unavailable right now.";
+        els.weeks.innerHTML = "";
+        els.months.innerHTML = "";
       });
   }
 
   load(USERNAME);
+
+  var githubApi = "https://api.github.com";
+  var apiHeaders = { Accept: "application/vnd.github+json" };
+  var stats = {
+    repos: document.getElementById("github-repos"),
+    stars: document.getElementById("github-stars"),
+    followers: document.getElementById("github-followers"),
+    following: document.getElementById("github-following"),
+    prTitle: document.getElementById("github-pr-title"),
+    prMeta: document.getElementById("github-pr-meta"),
+    commitTitle: document.getElementById("github-commit-title"),
+    commitMeta: document.getElementById("github-commit-meta"),
+  };
+
+  function formatRelativeDate(date) {
+    var days = Math.max(0, Math.floor((Date.now() - new Date(date).getTime()) / DAY_MS));
+    if (days === 0) return "today";
+    if (days === 1) return "yesterday";
+    if (days < 30) return days + " days ago";
+    return new Date(date).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+  }
+
+  function fetchGitHub(path) {
+    return fetch(githubApi + path, { headers: apiHeaders }).then(function (res) {
+      if (!res.ok) throw new Error("GitHub request failed");
+      return res.json();
+    });
+  }
+
+  function setText(element, value) {
+    if (element) element.textContent = value;
+  }
+
+  function loadGitHubStats() {
+    Promise.all([
+      fetchGitHub("/users/" + USERNAME),
+      fetchGitHub("/users/" + USERNAME + "/repos?per_page=100&sort=updated"),
+      fetchGitHub("/search/issues?q=author:" + USERNAME + "+type:pr&sort=updated&order=desc&per_page=1"),
+      fetchGitHub("/search/commits?q=author:" + USERNAME + "&sort=committer-date&order=desc&per_page=1"),
+    ]).then(function (results) {
+      var profile = results[0];
+      var repos = results[1];
+      var prs = results[2];
+      var commits = results[3];
+      var stars = repos.reduce(function (totalStars, repo) { return totalStars + repo.stargazers_count; }, 0);
+      setText(stats.repos, profile.public_repos);
+      setText(stats.stars, stars);
+      setText(stats.followers, profile.followers);
+      setText(stats.following, profile.following);
+
+      if (prs.items && prs.items.length) {
+        var pr = prs.items[0];
+        stats.prTitle.href = pr.html_url;
+        setText(stats.prTitle, pr.title);
+        setText(stats.prMeta, "" + (pr.repository_url.split("/").pop()) + " · " + formatRelativeDate(pr.updated_at));
+      } else {
+        setText(stats.prTitle, "No public pull requests yet");
+        setText(stats.prMeta, "Open source work in progress");
+      }
+
+      if (commits.items && commits.items.length) {
+        var commit = commits.items[0];
+        stats.commitTitle.href = commit.html_url;
+        setText(stats.commitTitle, commit.commit.message.split("\n")[0]);
+        setText(stats.commitMeta, commit.repository.full_name + " · " + formatRelativeDate(commit.commit.committer.date));
+      } else {
+        setText(stats.commitTitle, "No recent public commits");
+        setText(stats.commitMeta, "Visit GitHub for the full archive");
+      }
+    }).catch(function () {
+      setText(stats.repos, "--");
+      setText(stats.stars, "--");
+      setText(stats.followers, "--");
+      setText(stats.following, "--");
+      setText(stats.prTitle, "GitHub activity unavailable");
+      setText(stats.prMeta, "Try again later");
+      setText(stats.commitTitle, "GitHub activity unavailable");
+      setText(stats.commitMeta, "Try again later");
+    });
+  }
+
+  loadGitHubStats();
 })();
