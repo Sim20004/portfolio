@@ -393,69 +393,55 @@
 
 </section>
 
-<section id="github" class="section">
-
-    <div class="section-heading">
-        <p class="eyebrow">OPEN SOURCE</p>
-
-        <h2>Building in public.</h2>
-
-        <p>
-            Recent activity and contributions from my public GitHub projects.
-        </p>
+<section class="heatmap-card" id="commit-heatmap">
+  <div class="heatmap-header">
+    <div class="heatmap-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fab387" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12h4l3 8l4 -16l3 8h4" />
+      </svg>
+      <span>Commit Activity</span>
+      <span class="heatmap-badge" id="heatmap-live-badge" hidden>live</span>
     </div>
+    <a class="heatmap-profile-link" id="heatmap-profile-link" href="#" target="_blank" rel="noopener noreferrer">
+      github.com/
+    </a>
+  </div>
 
+  <div class="heatmap-total" id="heatmap-total">Loading contribution history…</div>
 
-    <!-- GitHub Contribution Graph -->
-
-    <div class="github-graph-wrapper">
-
-        <div
-            id="gh"
-            data-login="Sim20004"
-            data-show-header="false"
-            data-show-footer="true"
-            data-show-thumbnail="false"
-        ></div>
-
-    </div>
-
-
-    <!-- GitHub Profile -->
-
-    <div class="github-profile-card">
-
-        <div class="github-profile-content">
-
-            <span class="project-label">GITHUB</span>
-
-            <h3>Open-source development.</h3>
-
-            <p>
-                I actively build and contribute to open-source software,
-                working across programming languages, systems programming,
-                Linux, networking, and web development.
-            </p>
-
+  <div class="heatmap-scroll">
+    <div class="heatmap-grid-wrap">
+      <div class="heatmap-months" id="heatmap-months"></div>
+      <div class="heatmap-body">
+        <div class="heatmap-daylabels">
+          <span></span>
+          <span>Mon</span>
+          <span></span>
+          <span>Wed</span>
+          <span></span>
+          <span>Fri</span>
+          <span></span>
         </div>
-
-        <a
-            class="project-link"
-            href="https://github.com/Sim20004"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            View my GitHub profile
-            <span>↗</span>
-        </a>
-
+        <div class="heatmap-weeks" id="heatmap-weeks"></div>
+      </div>
     </div>
+  </div>
 
+  <div class="heatmap-legend">
+    <span>Less</span>
+    <div class="heatmap-legend-swatch" data-level="0"></div>
+    <div class="heatmap-legend-swatch" data-level="1"></div>
+    <div class="heatmap-legend-swatch" data-level="2"></div>
+    <div class="heatmap-legend-swatch" data-level="3"></div>
+    <div class="heatmap-legend-swatch" data-level="4"></div>
+    <span>More</span>
+  </div>
+
+  <div class="heatmap-tooltip" id="heatmap-tooltip" hidden></div>
 </section>
 
-
-<!-- GitHub Contribution Graph Library -->
-<script src="js/browser.global.js"></script>
+<script src="js/heatmap.js" defer></script>
 
 <section id="client-work" class="section">
 
