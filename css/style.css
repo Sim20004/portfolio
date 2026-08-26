@@ -835,6 +835,10 @@ a {
     outline-offset: 2px;
 }
 
+textarea {
+    resize: none;
+}
+
 .editor-label {
     display: block;
     padding: 0.65rem 0.8rem 0.2rem;
