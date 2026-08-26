@@ -1982,6 +1982,11 @@ footer a:hover {
   transition: outline 0.1s ease;
 }
 
+.heatmap-day.has-data:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
 .heatmap-day.has-data:hover,
 .heatmap-day.is-active {
   outline: 1px solid var(--text);
@@ -2035,6 +2040,87 @@ footer a:hover {
 
 .heatmap-tooltip strong {
   font-weight: 700;
+}
+
+.heatmap-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.heatmap-details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+.heatmap-details h3 {
+    margin: 0;
+    color: var(--text);
+    font-size: 0.8rem;
+}
+
+.heatmap-details-header button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font: inherit;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.heatmap-details-header button:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+}
+
+.heatmap-detail-status {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+.heatmap-detail-group + .heatmap-detail-group {
+    margin-top: 0.85rem;
+}
+
+.heatmap-detail-group h4 {
+    margin: 0 0 0.35rem;
+    color: var(--accent);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.heatmap-detail-list {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.heatmap-detail-list a {
+    color: var(--text);
+    font-size: 0.72rem;
+    text-decoration: none;
+}
+
+.heatmap-detail-list a:hover {
+    color: var(--accent);
+}
+
+.heatmap-detail-list span {
+    color: var(--muted);
+    font-size: 0.65rem;
 }
 
 @container (max-width: 760px) {

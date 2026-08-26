@@ -13,6 +13,10 @@
     fallback: document.getElementById("heatmap-fallback"),
     weeks: document.getElementById("heatmap-weeks"),
     tooltip: document.getElementById("heatmap-tooltip"),
+    details: document.getElementById("heatmap-details"),
+    detailsTitle: document.getElementById("heatmap-details-title"),
+    detailsContent: document.getElementById("heatmap-details-content"),
+    detailsClose: document.getElementById("heatmap-details-close"),
   };
 
   els.profileLink.href = "https://github.com/" + USERNAME;
@@ -105,6 +109,9 @@
           var level = levelFor(day.count, maxCount);
           dayEl.classList.add("has-data");
           dayEl.setAttribute("data-level", String(level));
+          dayEl.setAttribute("role", "button");
+          dayEl.tabIndex = 0;
+          dayEl.setAttribute("aria-label", "Show contribution activity for " + formatDate(day.date));
           dayEl.addEventListener("mouseenter", function () {
             dayEl.classList.add("is-active");
             showTooltip(dayEl, day);
@@ -112,6 +119,15 @@
           dayEl.addEventListener("mouseleave", function () {
             dayEl.classList.remove("is-active");
             hideTooltip();
+          });
+          dayEl.addEventListener("click", function () {
+            showDayDetails(day);
+          });
+          dayEl.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              showDayDetails(day);
+            }
           });
         }
         weekEl.appendChild(dayEl);
@@ -179,6 +195,65 @@
     return fetch(githubApi + path, { headers: apiHeaders }).then(function (res) {
       if (!res.ok) throw new Error("GitHub request failed");
       return res.json();
+    });
+  }
+
+  function showDayDetails(day) {
+    if (!els.details || !els.detailsContent) return;
+    els.details.hidden = false;
+    els.detailsTitle.textContent = "Contribution activity · " + formatDate(day.date);
+    els.detailsContent.innerHTML = '<p class="heatmap-detail-status">Loading activity...</p>';
+
+    var range = day.date + ".." + day.date;
+    Promise.all([
+      fetchGitHub("/search/commits?q=" + encodeURIComponent("author:" + USERNAME + " committer-date:" + range) + "&per_page=10"),
+      fetchGitHub("/search/issues?q=" + encodeURIComponent("author:" + USERNAME + " created:" + day.date + " type:pr") + "&per_page=10"),
+      fetchGitHub("/search/issues?q=" + encodeURIComponent("author:" + USERNAME + " created:" + day.date + " type:issue") + "&per_page=10"),
+    ]).then(function (results) {
+      var commits = results[0].items || [];
+      var pullRequests = results[1].items || [];
+      var issues = results[2].items || [];
+      var groups = [
+        { label: "Commits", items: commits.map(function (item) { return { title: item.commit.message.split("\n")[0], meta: item.repository.full_name, url: item.html_url }; }) },
+        { label: "Pull requests", items: pullRequests.map(function (item) { return { title: item.title, meta: item.repository_url.split("/").pop(), url: item.html_url }; }) },
+        { label: "Issues", items: issues.map(function (item) { return { title: item.title, meta: item.repository_url.split("/").pop(), url: item.html_url }; }) },
+      ].filter(function (group) { return group.items.length; });
+
+      els.detailsContent.innerHTML = "";
+      if (!groups.length) {
+        els.detailsContent.innerHTML = '<p class="heatmap-detail-status">No public activity found for this date.</p>';
+        return;
+      }
+      groups.forEach(function (group) {
+        var section = document.createElement("div");
+        section.className = "heatmap-detail-group";
+        var heading = document.createElement("h4");
+        heading.textContent = group.label;
+        var list = document.createElement("ul");
+        list.className = "heatmap-detail-list";
+        group.items.forEach(function (item) {
+          var entry = document.createElement("li");
+          var link = document.createElement("a");
+          link.href = item.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = item.title;
+          var meta = document.createElement("span");
+          meta.textContent = " · " + item.meta;
+          entry.append(link, meta);
+          list.append(entry);
+        });
+        section.append(heading, list);
+        els.detailsContent.append(section);
+      });
+    }).catch(function () {
+      els.detailsContent.innerHTML = '<p class="heatmap-detail-status">Activity details are unavailable right now. <a href="https://github.com/' + USERNAME + '?tab=overview&from=' + day.date + '&to=' + day.date + '" target="_blank" rel="noopener noreferrer">View this date on GitHub</a>.</p>';
+    });
+  }
+
+  if (els.detailsClose) {
+    els.detailsClose.addEventListener("click", function () {
+      els.details.hidden = true;
     });
   }
 

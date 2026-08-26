@@ -604,7 +604,7 @@ fc main()!void {
         <div class="section-heading">
                 <p class="eyebrow">OPEN SOURCE</p>
                 <h2>A year of building in public.</h2>
-                <p>Recent work and contribution activity from GitHub, updated when you visit.</p>
+                <p>Recent work and contribution activity from GitHub, updated when you visit - click on a cell to see detailed information about the contributions that were made on that day.</p>
         </div>
 
         <div class="github-dashboard">
@@ -635,6 +635,14 @@ fc main()!void {
                                         </div>
                                 </div>
                         </div>
+
+                        <section class="heatmap-details" id="heatmap-details" aria-live="polite" hidden>
+                            <div class="heatmap-details-header">
+                                <h3 id="heatmap-details-title">Contribution activity</h3>
+                                <button id="heatmap-details-close" type="button" aria-label="Close contribution details">×</button>
+                            </div>
+                            <div id="heatmap-details-content"></div>
+                        </section>
 
                         <div class="heatmap-legend" aria-label="Contribution intensity">
                                 <span>Less</span>
