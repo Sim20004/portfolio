@@ -330,6 +330,12 @@
             A selection of projects exploring different areas of software
             development.
         </p>
+        <p class="demo-notice">
+            <strong>Live demos are simplified simulations.</strong>
+            They may be incomplete and do not implement every feature from the
+            projects. For the full functionality, architecture, and current
+            implementation, the source code is the best reference.
+        </p>
     </div>
 
     <div class="project-grid">
@@ -368,6 +374,22 @@
                     <span>Assembly</span>
                     <span>x86-64</span>
                     <span>Operating Systems</span>
+                </div>
+                
+                <div class="project-preview os-preview" data-os-terminal>
+                    <div class="preview-toolbar">
+                        <span class="preview-kicker">LIVE PREVIEW</span>
+                        <span class="preview-status"><i></i> simulated kernel</span>
+                    </div>
+                    <div class="terminal-output" aria-live="polite">
+                        <p>Kernel started successfully!</p>
+                        <p>Welcome to TeapotOS!</p>
+                        <p class="terminal-prompt"><strong>TeapotOS&gt;</strong> <span></span><b aria-hidden="true">_</b></p>
+                    </div>
+                    <form class="terminal-form">
+                        <label for="os-command">TeapotOS&gt;</label>
+                        <input id="os-command" name="command" type="text" autocomplete="off" spellcheck="false" aria-label="TeapotOS command">
+                    </form>
                 </div>
 
                 <div class="project-links">
@@ -430,6 +452,30 @@
                     <span>Compiler</span>
                     <span>AST</span>
                 </div>
+                
+                <div class="project-preview compiler-preview" data-compiler>
+                    <div class="preview-toolbar">
+                        <span class="preview-kicker">LIVE PREVIEW</span>
+                        <span class="preview-status"><i></i> browser simulation</span>
+                    </div>
+                    <label class="editor-label" for="teapot-source">main.tp</label>
+                    <textarea id="teapot-source" spellcheck="false">$MEM-GC
+fc main()!void {
+    exit 0.
+}</textarea>
+                    <div class="compiler-actions">
+                        <button class="preview-button" type="button">Compile source</button>
+                        <span class="compile-stage">ready</span>
+                    </div>
+                    <div class="compiler-tabs" role="tablist">
+                        <button class="compiler-tab active" type="button" data-view="tokens">Token Object list</button>
+                        <button class="compiler-tab" type="button" data-view="ast">AST Tree</button>
+                        <button class="compiler-tab" type="button" data-view="table">Token table</button>
+                    </div>
+                    <pre class="compiler-output" data-output="tokens" aria-live="polite">Compile to inspect lexer output.</pre>
+                    <pre class="compiler-output" data-output="ast" aria-live="polite" hidden>Compile to inspect parser output.</pre>
+                    <pre class="compiler-output" data-output="table" aria-live="polite" hidden>Compile to inspect token types.</pre>
+                </div>
 
                 <div class="project-links">
                     <a
@@ -487,6 +533,33 @@
                     <span>Tokio</span>
                     <span>TCP</span>
                     <span>Serde</span>
+                </div>
+                
+                <div class="project-preview chat-preview" data-chat>
+                    <div class="preview-toolbar">
+                        <span class="preview-kicker">LIVE PREVIEW</span>
+                        <span class="preview-status"><i></i> local relay</span>
+                    </div>
+                    <div class="chat-clients">
+                        <section class="chat-client client-a">
+                            <header class="terminal-titlebar"><span class="terminal-lights"><i></i><i></i><i></i></span><span>fossil-client · terminal A</span></header>
+                            <div class="chat-messages fossil-terminal-output" aria-live="polite"></div>
+                            <form class="chat-form">
+                                <label for="fossil-a-command">FOSSil Chat input</label>
+                                <input id="fossil-a-command" type="text" autocomplete="off" aria-label="Client A command">
+                                <button type="submit" aria-label="Send client A message">&gt;</button>
+                            </form>
+                        </section>
+                        <section class="chat-client client-b">
+                            <header class="terminal-titlebar"><span class="terminal-lights"><i></i><i></i><i></i></span><span>fossil-client · terminal B</span></header>
+                            <div class="chat-messages fossil-terminal-output" aria-live="polite"></div>
+                            <form class="chat-form">
+                                <label for="fossil-b-command">FOSSil Chat input</label>
+                                <input id="fossil-b-command" type="text" autocomplete="off" aria-label="Client B command">
+                                <button type="submit" aria-label="Send client B message">&gt;</button>
+                            </form>
+                        </section>
+                    </div>
                 </div>
 
                 <div class="project-links">
