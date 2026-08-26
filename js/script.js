@@ -341,7 +341,6 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
             message.textContent = text
             messages.append(message)
         }
-        addMessage("Enter your name (or !exit to leave chat):", "prompt-line")
         const updatePrompt = () => {
             const existing = messages.querySelector(".live-prompt")
             if (existing) existing.remove()
@@ -355,6 +354,16 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
         }
         updatePrompt()
         input.addEventListener("input", updatePrompt)
+        chat.addEventListener("chat-reset", () => {
+            sessions[senderIndex].name = ""
+            sessions[senderIndex].joined = false
+            sessions[senderIndex].active = true
+            input.disabled = false
+            input.value = ""
+            input.placeholder = "Enter your name"
+            messages.replaceChildren()
+            updatePrompt()
+        })
         form.addEventListener("submit", (event) => {
             event.preventDefault()
             const text = input.value.trim()
@@ -382,7 +391,7 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
                 return
             }
             if (text === "!exit") {
-                addMessage(`\n${session.name} left.`, "joined")
+                addMessage("disconnected", "chat-error")
                 input.disabled = true
                 session.active = false
                 return
@@ -400,5 +409,9 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
             input.value = ""
             updatePrompt()
         })
+    })
+
+    chat.querySelector("[data-chat-reset]").addEventListener("click", () => {
+        chat.dispatchEvent(new Event("chat-reset"))
     })
 })

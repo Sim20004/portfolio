@@ -728,6 +728,23 @@ a {
     white-space: nowrap;
 }
 
+.chat-reset {
+    margin-left: auto;
+    padding: 0.25rem 0.45rem;
+    color: #a6adc8;
+    background: transparent;
+    border: 1px solid rgba(205, 214, 244, 0.2);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 0.58rem;
+    cursor: pointer;
+}
+
+.chat-reset:hover {
+    color: var(--text);
+    border-color: var(--accent);
+}
+
 .preview-status i,
 .client-dot {
     width: 6px;
@@ -831,7 +848,6 @@ a {
     min-height: 134px;
     max-height: 134px;
     display: block;
-    resize: vertical;
     padding: 0.35rem 0.8rem 0.8rem;
     color: #cdd6f4;
     background: transparent;
