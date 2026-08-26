@@ -888,6 +888,43 @@ a {
     text-align: left;
 }
 
+.token-table-output {
+    overflow: auto;
+    padding: 0;
+}
+
+.token-table-output table {
+    width: 100%;
+    min-width: 470px;
+    border-collapse: collapse;
+    color: #cdd6f4;
+    font-size: 0.62rem;
+    white-space: nowrap;
+}
+
+.token-table-output th,
+.token-table-output td {
+    padding: 0.45rem 0.65rem;
+    border-bottom: 1px solid rgba(205, 214, 244, 0.1);
+    text-align: left;
+}
+
+.token-table-output th {
+    position: sticky;
+    top: 0;
+    color: #89b4fa;
+    background: #171e29;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.token-table-output td:first-child,
+.token-table-output td:nth-child(4),
+.token-table-output td:last-child {
+    color: #f9e2af;
+}
+
 .compiler-tabs {
     display: flex;
     gap: 0.25rem;

@@ -275,11 +275,7 @@ document.querySelectorAll("[data-compiler]").forEach((compiler) => {
         }
         return lines.join("\n")
     }
-    const formatTable = (tokens) => [
-        "INDEX | TYPE             | VALUE                 | LINE | COL",
-        "------+------------------+-----------------------+------+----",
-        ...tokens.map((token, index) => `${String(index).padStart(5)} | ${token.type.padEnd(16)} | ${String(token.value ?? "None").padEnd(21)} | ${String(token.line).padStart(4)} | ${token.col}`)
-    ].join("\n")
+    const formatTable = (tokens) => `<table><thead><tr><th>Index</th><th>Type</th><th>Value</th><th>Line</th><th>Col</th></tr></thead><tbody>${tokens.map((token, index) => `<tr><td>${index}</td><td>${escapeText(token.type)}</td><td>${escapeText(String(token.value ?? "None"))}</td><td>${token.line}</td><td>${token.col}</td></tr>`).join("")}</tbody></table>`
 
     compiler.querySelectorAll(".compiler-tab").forEach((tab) => tab.addEventListener("click", () => {
         compiler.querySelectorAll(".compiler-tab").forEach((item) => item.classList.toggle("active", item === tab))
@@ -316,7 +312,7 @@ document.querySelectorAll("[data-compiler]").forEach((compiler) => {
                         validateSyntax(tokens)
                         outputs.tokens.textContent = formatTokens(tokens)
                         outputs.ast.textContent = formatAst(tokens)
-                        outputs.table.textContent = formatTable(tokens)
+                        outputs.table.innerHTML = formatTable(tokens)
                         stage.textContent = "complete"
                     } catch (error) {
                         outputs.tokens.classList.add("error")
