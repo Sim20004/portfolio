@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" role="img" aria-labelledby="title desc">
   <title id="title">TeapotLang compiler architecture</title>
-  <desc id="desc">A placeholder diagram showing source, tokens, AST, and output.</desc>
+  <desc id="desc">A compiler pipeline diagram showing source text becoming tokens, an AST, and output.</desc>
   <rect width="700" height="500" fill="#181825"/>
   <path d="M100 250h500" stroke="#89b4fa" stroke-width="4" stroke-dasharray="10 12"/>
   <g fill="#1e1e2e" stroke="#89b4fa" stroke-width="3">
