@@ -18,6 +18,12 @@
         <h2>The approach</h2>
         <p>I split the work into explicit stages: source text becomes tokens, tokens become an abstract syntax tree, and later stages can operate on that tree without re-parsing the original input. This kept each decision local and made debugging more concrete.</p>
         <p>The lexer owns character-level decisions, while the parser owns structure. That separation means a syntax error can point back to a useful token instead of exposing an implementation detail from a later stage. I also kept the tree deliberately small so the representation reflected the language I actually understood.</p>
+        <h2>How I actually built this</h2>
+        <ol class="build-timeline">
+            <li><strong>First pass:</strong> the lexer and parser became stable enough to test independently, which exposed mistakes earlier than an end-to-end compiler demo.</li>
+            <li><strong>Setback:</strong> semantic analysis was broken for a week before I found the bug in how the AST traversal handled top-level nodes.</li>
+            <li><strong>Recovery:</strong> I added focused semantic-analysis tests and kept CI running ruff, mypy, and pytest so later changes could not quietly undo the fix.</li>
+        </ol>
         <h2>The trade-offs</h2>
         <p>It would have been tempting to optimise early or add a large feature set. I chose clarity first: straightforward data structures, explicit stages, and tests around the pieces that were already stable. The result is easier to extend because each new language feature has a visible place to belong.</p>
         <h2>What I learned</h2>

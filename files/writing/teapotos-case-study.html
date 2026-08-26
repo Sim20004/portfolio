@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeapotOS case study | Simarpreet Singh</title>
+    <link rel="stylesheet" href="../../css/writing.css">
+</head>
+<body>
+<a class="back-link" href="../../index.html#projects">← Back to projects</a>
+<main>
+    <p class="eyebrow">CASE STUDY / SYSTEMS</p>
+    <h1>From boot sector to working shell</h1>
+    <p class="lede">How TeapotOS moved from a small x86 bootloader to a kernel that boots into an interactive shell in QEMU.</p>
+    <article>
+        <h2>The problem</h2>
+        <p>An operating system project has to make every hidden assumption explicit. Before there is a runtime, filesystem, or standard library, the bootloader must load code, establish a machine state, and transfer control reliably.</p>
+        <h2>The approach</h2>
+        <p>I kept the system deliberately small: roughly 11KB of x86 assembly split between the bootloader and kernel. The bootloader sets up the Global Descriptor Table, switches the CPU into 32-bit protected mode, and jumps into the kernel.</p>
+        <p>The kernel then writes to the VGA text buffer, handles PS/2 keyboard input, and turns those inputs into a small interactive command shell. QEMU made the feedback loop cheap: assemble an image, boot it, and inspect the result without risking the host system.</p>
+        <h2>How I actually built this</h2>
+        <ol class="build-timeline">
+            <li><strong>First pass:</strong> I got the boot sector loading a kernel image before adding terminal output or input.</li>
+            <li><strong>Setback:</strong> the protected-mode handoff failed when the segment configuration did not match the GDT, leaving the kernel unreachable after the mode switch.</li>
+            <li><strong>Recovery:</strong> I verified the transition in small steps, then added keyboard handling, scrolling, and shell commands once the boot path was dependable.</li>
+        </ol>
+        <h2>What I learned</h2>
+        <p>Low-level progress is easier to trust when each boundary has a visible proof: the bootloader loads, protected mode is active, the kernel prints, and input arrives. The current shell is only an early milestone, but it gives future memory management, filesystems, and executable loading somewhere concrete to land.</p>
+    </article>
+</main>
+</body>
+</html>

@@ -590,6 +590,25 @@ a {
     line-height: 1.7;
 }
 
+.project-content .project-stat {
+    margin: 0 0 0.7rem;
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.project-content .project-next {
+    margin: 0 0 1rem;
+    color: #777e98;
+    font-size: 0.72rem;
+    line-height: 1.6;
+}
+
+.project-next strong {
+    color: var(--text);
+}
+
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -641,9 +660,15 @@ a {
 
 .project-links {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
 
     margin-top: auto;
+}
+
+.project-links .project-link {
+    margin-top: 0;
 }
 
 
@@ -765,6 +790,18 @@ a {
     color: #777e98;
     font-size: 0.72rem;
     line-height: 1.6;
+}
+
+.client-quote {
+    margin: 0 0 1.2rem;
+    color: var(--text) !important;
+    font-size: 0.78rem !important;
+    font-style: italic;
+}
+
+.client-quote span {
+    color: var(--muted);
+    font-style: normal;
 }
 
 .site-preview {

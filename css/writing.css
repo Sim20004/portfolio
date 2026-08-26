@@ -66,6 +66,19 @@ h2 {
 
 p, li { color: var(--muted); font-size: 0.9rem; }
 
+.build-timeline {
+    margin: 1rem 0 2rem;
+    padding-left: 1.4rem;
+}
+
+.build-timeline li {
+    padding: 0.45rem 0;
+}
+
+.build-timeline strong {
+    color: var(--text);
+}
+
 code {
     padding: 0.1rem 0.3rem;
     color: var(--text);
