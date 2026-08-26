@@ -590,12 +590,21 @@ a {
     line-height: 1.7;
 }
 
-.project-content .project-stat {
-    margin: 0 0 0.7rem;
+.project-facts {
+    display: grid;
+    gap: 0.3rem;
+
+    margin: 0 0 0.8rem;
+    padding-left: 1.1rem;
+
     color: var(--text);
     font-size: 0.72rem;
     font-weight: 700;
-    line-height: 1.6;
+    line-height: 1.5;
+}
+
+.project-facts li {
+    padding-left: 0.15rem;
 }
 
 .project-content .project-next {
@@ -662,7 +671,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 0.6rem;
 
     margin-top: auto;
 }
