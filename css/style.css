@@ -908,28 +908,28 @@ textarea {
     text-align: left;
 }
 
-.token-table-output {
+.symbol-table-output {
     overflow: auto;
     padding: 0;
 }
 
-.token-table-output table {
+.symbol-table-output table {
     width: 100%;
-    min-width: 470px;
+    min-width: 360px;
     border-collapse: collapse;
     color: #cdd6f4;
     font-size: 0.62rem;
     white-space: nowrap;
 }
 
-.token-table-output th,
-.token-table-output td {
+.symbol-table-output th,
+.symbol-table-output td {
     padding: 0.45rem 0.65rem;
     border-bottom: 1px solid rgba(205, 214, 244, 0.1);
     text-align: left;
 }
 
-.token-table-output th {
+.symbol-table-output th {
     position: sticky;
     top: 0;
     color: #89b4fa;
@@ -939,9 +939,8 @@ textarea {
     text-transform: uppercase;
 }
 
-.token-table-output td:first-child,
-.token-table-output td:nth-child(4),
-.token-table-output td:last-child {
+.symbol-table-output td:first-child,
+.symbol-table-output td:nth-child(3) {
     color: #f9e2af;
 }
 
@@ -1503,6 +1502,45 @@ footer a:hover {
    MOBILE
    ========================= */
 
+@media (max-width: 1167px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 64px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        padding: 1rem;
+
+        background: rgba(17, 17, 27, 0.98);
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+
+        padding: 0.75rem;
+
+        text-align: center;
+    }
+
+}
+
 @media (max-width: 700px) {
 
     .navbar {
@@ -1909,17 +1947,11 @@ footer a:hover {
 .heatmap-grid-wrap {
     position: relative;
     width: 100%;
-    min-width: 0;
 }
 
 .heatmap-body {
     display: flex;
-    min-width: 0;
-}
-
-.heatmap-weeks {
-    display: flex;
-    gap: var(--hm-gap);
+    width: 100%;
 }
 
 .heatmap-weeks {
@@ -2006,30 +2038,49 @@ footer a:hover {
 }
 
 @container (max-width: 760px) {
-    #commit-heatmap {
-        --hm-cell: 8px;
-        --hm-gap: 2px;
-        --hm-daylabel-width: 25px;
+    .heatmap-scroll {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-color: var(--accent) var(--bg-soft);
+        scrollbar-width: thin;
     }
-}
 
-@container (max-width: 470px) {
-    #commit-heatmap {
-        --hm-cell: 5px;
-        --hm-gap: 1px;
-        --hm-daylabel-width: 22px;
+    .heatmap-scroll::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .heatmap-scroll::-webkit-scrollbar-track {
+        background: var(--bg-soft);
+    }
+
+    .heatmap-scroll::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 4px;
+    }
+
+    .heatmap-grid-wrap,
+    .heatmap-body,
+    .heatmap-weeks {
+        width: max-content;
+    }
+
+    .heatmap-grid-wrap {
+        min-width: 700px;
+    }
+
+    .heatmap-body,
+    .heatmap-weeks {
+        min-width: 700px;
+    }
+
+    .heatmap-weeks {
+        flex: 0 0 auto;
     }
 }
 
 @media (max-width: 700px) {
     .github-dashboard {
         grid-template-columns: minmax(0, 1fr);
-    }
-
-    #commit-heatmap {
-        --hm-cell: 5px;
-        --hm-gap: 1px;
-        --hm-daylabel-width: 22px;
     }
 
     .github-activity,

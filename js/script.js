@@ -275,7 +275,75 @@ document.querySelectorAll("[data-compiler]").forEach((compiler) => {
         }
         return lines.join("\n")
     }
-    const formatTable = (tokens) => `<table><thead><tr><th>Index</th><th>Type</th><th>Value</th><th>Line</th><th>Col</th></tr></thead><tbody>${tokens.map((token, index) => `<tr><td>${index}</td><td>${escapeText(token.type)}</td><td>${escapeText(String(token.value ?? "None"))}</td><td>${token.line}</td><td>${token.col}</td></tr>`).join("")}</tbody></table>`
+    const formatSymbols = (tokens) => {
+        const symbols = []
+        const addSymbol = (name, kind, type, scope, token) => symbols.push({ name, kind, type, scope, visibility: scope === "module" ? "public" : "local", line: token.line })
+        const value = (index) => tokens[index]?.value ?? "?"
+        const readType = (index) => {
+            let type = value(index)
+            if (tokens[index + 1]?.type === "OPEN_BRACKET" && tokens[index + 2]?.type === "CLOSE_BRACKET") type += "[]"
+            return type
+        }
+        const matching = (start, open, close) => {
+            let depth = 0
+            for (let index = start; index < tokens.length; index += 1) {
+                if (tokens[index].type === open) depth += 1
+                if (tokens[index].type === close) { depth -= 1; if (depth === 0) return index }
+            }
+            return tokens.length - 1
+        }
+        const addArguments = (start, end, scope) => {
+            for (let index = start; index < end;) {
+                const type = readType(index)
+                index += tokens[index + 1]?.type === "OPEN_BRACKET" ? 3 : 1
+                if (tokens[index]?.type !== "IDENTIFIER") break
+                addSymbol(value(index), "parameter", type, scope, tokens[index])
+                index += 1
+                if (tokens[index]?.type === "COMMA") index += 1
+            }
+        }
+        for (let index = 1; index < tokens.length - 1;) {
+            let isPublic = false
+            if (tokens[index].type === "PUBLIC") { isPublic = true; index += 1 }
+            const token = tokens[index]
+            const visibility = isPublic ? "public" : "private"
+            if (["FUNCTION", "OPERATOR"].includes(token.type)) {
+                const nameToken = tokens[index + 1]
+                const open = tokens.findIndex((item, offset) => offset > index && item.type === "OPEN_PAREN")
+                const close = matching(open, "OPEN_PAREN", "CLOSE_PAREN")
+                const brace = tokens.findIndex((item, offset) => offset > close && item.type === "OPEN_BRACE")
+                const bodyEnd = matching(brace, "OPEN_BRACE", "CLOSE_BRACE")
+                addSymbol(value(index + 1), token.type === "FUNCTION" ? "function" : "operator", value(close + 2), "module", nameToken)
+                symbols[symbols.length - 1].visibility = visibility
+                addArguments(open + 1, close, value(index + 1))
+                for (let body = brace + 1; body < bodyEnd; body += 1) {
+                    if (tokens[body].type === "VAL") {
+                        const type = readType(body + 1)
+                        const nameIndex = body + (tokens[body + 2]?.type === "OPEN_BRACKET" ? 4 : 2)
+                        addSymbol(value(nameIndex), "variable", type, value(index + 1), tokens[nameIndex])
+                    }
+                }
+                index = bodyEnd + 1
+            } else if (token.type === "VAL") {
+                const type = readType(index + 1)
+                const nameIndex = index + (tokens[index + 2]?.type === "OPEN_BRACKET" ? 4 : 2)
+                addSymbol(value(nameIndex), "variable", type, "module", tokens[nameIndex])
+                symbols[symbols.length - 1].visibility = visibility
+                index += 1
+            } else if (["STRUCT", "ENUM", "ERROR"].includes(token.type)) {
+                const nameToken = tokens[index + 1]
+                const kind = token.type.toLowerCase()
+                addSymbol(value(index + 1), kind, "", "module", nameToken)
+                symbols[symbols.length - 1].visibility = visibility
+                const brace = tokens.findIndex((item, offset) => offset > index && item.type === "OPEN_BRACE")
+                index = matching(brace, "OPEN_BRACE", "CLOSE_BRACE") + 1
+            } else index += 1
+        }
+        const rows = symbols.length
+            ? symbols.map((symbol) => `<tr><td>${escapeText(symbol.name)}</td><td>${escapeText(symbol.kind)}</td><td>${escapeText(symbol.type)}</td><td>${escapeText(symbol.scope)}</td><td>${escapeText(symbol.visibility)}</td><td>${symbol.line}</td></tr>`).join("")
+            : `<tr><td colspan="6">No semantic symbols found.</td></tr>`
+        return `<table><thead><tr><th>Name</th><th>Kind</th><th>Type</th><th>Scope</th><th>Visibility</th><th>Line</th></tr></thead><tbody>${rows}</tbody></table>`
+    }
 
     compiler.querySelectorAll(".compiler-tab").forEach((tab) => tab.addEventListener("click", () => {
         compiler.querySelectorAll(".compiler-tab").forEach((item) => item.classList.toggle("active", item === tab))
@@ -312,7 +380,7 @@ document.querySelectorAll("[data-compiler]").forEach((compiler) => {
                         validateSyntax(tokens)
                         outputs.tokens.textContent = formatTokens(tokens)
                         outputs.ast.textContent = formatAst(tokens)
-                        outputs.table.innerHTML = formatTable(tokens)
+                        outputs.symbols.innerHTML = formatSymbols(tokens)
                         stage.textContent = "complete"
                     } catch (error) {
                         outputs.tokens.classList.add("error")
