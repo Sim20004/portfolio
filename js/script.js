@@ -335,11 +335,15 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
         const input = form.querySelector("input")
         const messages = client.querySelector(".chat-messages")
         input.placeholder = "Enter your name"
+        const scrollMessagesToBottom = () => {
+            messages.scrollTop = messages.scrollHeight
+        }
         const addMessage = (text, className = "") => {
             const message = document.createElement("p")
             message.className = `chat-message ${className}`
             message.textContent = text
             messages.append(message)
+            scrollMessagesToBottom()
         }
         const updatePrompt = () => {
             const existing = messages.querySelector(".live-prompt")
@@ -351,6 +355,7 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
                 ? `Message (or !exit to leave chat): ${input.value}_`
                 : `Enter your name (or !exit to leave chat): ${input.value}_`
             messages.append(prompt)
+            scrollMessagesToBottom()
         }
         updatePrompt()
         input.addEventListener("input", updatePrompt)
@@ -405,6 +410,7 @@ document.querySelectorAll("[data-chat]").forEach((chat) => {
                 recipientMessages.append(message)
                 const recipientPrompt = recipientMessages.querySelector(".live-prompt")
                 if (recipientPrompt) recipientMessages.append(recipientPrompt)
+                recipientMessages.scrollTop = recipientMessages.scrollHeight
             })
             input.value = ""
             updatePrompt()
