@@ -91,7 +91,7 @@
     // Total line
     els.total.innerHTML = "<strong>" + total.toLocaleString() + "</strong> contributions in the last year";
     els.liveBadge.hidden = false;
-    els.fallback.hidden = true;
+    if (els.fallback) els.fallback.hidden = true;
 
     // Weeks grid
     els.weeks.innerHTML = "";
@@ -145,7 +145,7 @@
       })
       .catch(function () {
         els.total.textContent = "Contribution history is unavailable right now.";
-        els.fallback.hidden = false;
+        if (els.fallback) els.fallback.hidden = false;
         els.weeks.innerHTML = "";
       });
   }
@@ -208,13 +208,15 @@
       setText(stats.pythonRepos, languageCounts.Python || 0);
       setText(stats.prs, prs.total_count || 0);
       setText(stats.languageTotal, languageTotal + " repos classified");
-      stats.languageBars.innerHTML = "";
-      languages.slice(0, 5).forEach(function (language) {
-        var row = document.createElement("div");
-        row.className = "language-row";
-        row.innerHTML = "<span>" + language + "</span><div class=\"language-track\"><i style=\"width: " + Math.round(languageCounts[language] / languageTotal * 100) + "%\"></i></div><strong>" + languageCounts[language] + "</strong>";
-        stats.languageBars.appendChild(row);
-      });
+      if (stats.languageBars) {
+        stats.languageBars.innerHTML = "";
+        languages.slice(0, 5).forEach(function (language) {
+          var row = document.createElement("div");
+          row.className = "language-row";
+          row.innerHTML = "<span>" + language + "</span><div class=\"language-track\"><i style=\"width: " + Math.round(languageCounts[language] / languageTotal * 100) + "%\"></i></div><strong>" + languageCounts[language] + "</strong>";
+          stats.languageBars.appendChild(row);
+        });
+      }
 
       if (prs.items && prs.items.length) {
         var pr = prs.items[0];
@@ -241,7 +243,7 @@
       setText(stats.pythonRepos, "--");
       setText(stats.prs, "--");
       setText(stats.languageTotal, "Unavailable");
-      stats.languageBars.innerHTML = "<span class=\"language-empty\">Language data is unavailable right now.</span>";
+      if (stats.languageBars) stats.languageBars.innerHTML = "<span class=\"language-empty\">Language data is unavailable right now.</span>";
       setText(stats.prTitle, "GitHub activity unavailable");
       setText(stats.prMeta, "Try again later");
       setText(stats.commitTitle, "GitHub activity unavailable");
