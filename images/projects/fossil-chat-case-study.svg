@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" role="img" aria-labelledby="title desc">
+  <title id="title">FOSSil Chat network flow</title>
+  <desc id="desc">A placeholder network diagram showing two clients connected to a server.</desc>
+  <rect width="700" height="500" fill="#181825"/>
+  <g fill="#1e1e2e" stroke="#89b4fa" stroke-width="3"><rect x="70" y="110" width="150" height="90" rx="8"/><rect x="480" y="110" width="150" height="90" rx="8"/><rect x="255" y="300" width="190" height="95" rx="8"/></g>
+  <path d="M145 200l165 100M555 200L395 300" stroke="#89b4fa" stroke-width="4" stroke-dasharray="10 12"/>
+  <g fill="#f2f2f7" font-family="monospace" font-size="20" text-anchor="middle"><text x="350" y="90" fill="#89b4fa" font-size="28">FOSSIL CHAT</text><text x="145" y="165">client A</text><text x="555" y="165">client B</text><text x="350" y="355">TCP server</text></g>
+</svg>

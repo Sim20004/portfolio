@@ -64,8 +64,11 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#github">Building in public</a></li>
             <li><a href="#client-work">Client Work</a></li>
+            <li><a href="#writing">Writing</a></li>
             <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#contact">Get in touch</a></li>
             <li>
                 <a
                     href="https://github.com/Sim20004"
@@ -159,6 +162,58 @@
             I'm constantly learning, experimenting with new technologies,
             and turning ideas into working software.
         </p>
+
+    </div>
+
+    <div class="case-study-grid">
+
+        <article class="case-study-card">
+            <img
+                src="images/projects/teapotlang-case-study.svg"
+                alt="TeapotLang compiler architecture preview"
+                loading="lazy"
+            >
+            <div>
+                <span class="project-label">HOW I BUILT THIS</span>
+                <h3>From source text to executable ideas</h3>
+                <p>
+                    I designed TeapotLang from the lexer and parser upwards,
+                    keeping the intermediate representation understandable as
+                    the language evolved.
+                </p>
+                <p class="case-study-detail">
+                    <strong>Challenge:</strong> make each compiler stage easy to
+                    inspect while the language was still changing.
+                </p>
+                <a class="project-link" href="files/writing/teapotlang-case-study.html">
+                    Read the case study <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="case-study-card">
+            <img
+                src="images/projects/fossil-chat-case-study.svg"
+                alt="FOSSil Chat network flow preview"
+                loading="lazy"
+            >
+            <div>
+                <span class="project-label">HOW I BUILT THIS</span>
+                <h3>Making a chat system feel dependable</h3>
+                <p>
+                    FOSSil Chat gave me a practical way to explore async Rust,
+                    TCP communication, serialization, and the trade-offs of
+                    building open-source software with another developer.
+                </p>
+                <p class="case-study-detail">
+                    <strong>Trade-off:</strong> keep the protocol small and
+                    readable before adding convenience features.
+                </p>
+                <a class="project-link" href="files/writing/fossil-chat-case-study.html">
+                    Read the case study <span>↗</span>
+                </a>
+            </div>
+        </article>
 
     </div>
 
@@ -418,14 +473,13 @@
                         </div>
 
                         <div class="heatmap-total" id="heatmap-total">Loading contribution history...</div>
+                        <p class="heatmap-fallback" id="heatmap-fallback" hidden>
+                            Live activity could not be loaded. <a href="https://github.com/Sim20004" target="_blank" rel="noopener noreferrer">View the full GitHub profile</a>.
+                        </p>
 
                         <div class="heatmap-scroll">
                                 <div class="heatmap-grid-wrap">
-                                        <div class="heatmap-months" id="heatmap-months"></div>
                                         <div class="heatmap-body">
-                                                <div class="heatmap-daylabels" aria-hidden="true">
-                                                        <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
-                                                </div>
                                                 <div class="heatmap-weeks" id="heatmap-weeks"></div>
                                         </div>
                                 </div>
@@ -447,10 +501,15 @@
                 <div class="github-activity">
                         <div class="github-stats" aria-label="GitHub statistics">
                                 <article class="github-stat"><span>Public repos</span><strong id="github-repos">--</strong></article>
-                                <article class="github-stat"><span>Stars earned</span><strong id="github-stars">--</strong></article>
-                                <article class="github-stat"><span>Followers</span><strong id="github-followers">--</strong></article>
-                                <article class="github-stat"><span>Following</span><strong id="github-following">--</strong></article>
+                        <article class="github-stat"><span>Rust repos</span><strong id="github-rust-repos">--</strong></article>
+                        <article class="github-stat"><span>Python repos</span><strong id="github-python-repos">--</strong></article>
+                        <article class="github-stat"><span>Public pull requests</span><strong id="github-prs">--</strong></article>
                         </div>
+
+                    <article class="language-card">
+                        <div class="language-card-header"><span class="activity-label">Languages across public repos</span><span id="github-language-total">Loading...</span></div>
+                        <div class="language-bars" id="github-language-bars" aria-label="Programming languages used across public repositories"></div>
+                    </article>
 
                         <article class="activity-card" id="github-last-pr">
                                 <span class="activity-label">Last pull request</span>
@@ -496,6 +555,8 @@
                     desktop and mobile devices.
                 </p>
 
+                <p class="impact-note"><strong>Impact snapshot:</strong> add a measured result here, such as enquiries, search visibility, or page-speed improvement.</p>
+
                 <div class="tech-tags">
                     <span>HTML</span>
                     <span>CSS</span>
@@ -538,6 +599,8 @@
                     customers with a simple and professional online presence.
                 </p>
 
+                <p class="impact-note"><strong>Impact snapshot:</strong> add a measured result here, such as visits, calls, or customer feedback.</p>
+
                 <div class="tech-tags">
                     <span>HTML</span>
                     <span>CSS</span>
@@ -566,6 +629,41 @@
 
         </article>
 
+    </div>
+
+</section>
+
+
+<section id="writing" class="section">
+
+    <div class="section-heading">
+        <p class="eyebrow">NOTES FROM THE WORKBENCH</p>
+        <h2>Writing as I learn.</h2>
+        <p>
+            Short technical notes on the ideas behind the projects, with room
+            for diagrams, experiments, and lessons learned.
+        </p>
+    </div>
+
+    <div class="writing-grid">
+        <article class="writing-card">
+            <span class="project-label">SYSTEMS</span>
+            <h3>Reading x86-64 addressing modes</h3>
+            <p>Notes on registers, memory operands, and the small details that make assembly click.</p>
+            <a class="project-link" href="files/writing/x86-64-addressing.html">Read note <span>↗</span></a>
+        </article>
+        <article class="writing-card">
+            <span class="project-label">COMPILERS</span>
+            <h3>What a lexer gives you</h3>
+            <p>A practical look at the first stage of TeapotLang and why good errors start early.</p>
+            <a class="project-link" href="files/writing/lexer-design.html">Read note <span>↗</span></a>
+        </article>
+        <article class="writing-card">
+            <span class="project-label">RUST</span>
+            <h3>Choosing async boundaries</h3>
+            <p>Lessons from keeping network code explicit while FOSSil Chat grew.</p>
+            <a class="project-link" href="files/writing/async-boundaries.html">Read note <span>↗</span></a>
+        </article>
     </div>
 
 </section>
@@ -667,7 +765,7 @@
         <p class="eyebrow">GET IN TOUCH</p>
 
         <h2>
-            Have a project or opportunity?
+            Looking for a freelance developer or intern?
         </h2>
 
         <p>

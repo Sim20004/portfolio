@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" role="img" aria-labelledby="title desc">
+  <title id="title">TeapotLang compiler architecture</title>
+  <desc id="desc">A placeholder diagram showing source, tokens, AST, and output.</desc>
+  <rect width="700" height="500" fill="#181825"/>
+  <path d="M100 250h500" stroke="#89b4fa" stroke-width="4" stroke-dasharray="10 12"/>
+  <g fill="#1e1e2e" stroke="#89b4fa" stroke-width="3">
+    <rect x="35" y="205" width="135" height="90" rx="8"/><rect x="195" y="205" width="135" height="90" rx="8"/><rect x="355" y="205" width="135" height="90" rx="8"/><rect x="515" y="205" width="135" height="90" rx="8"/>
+  </g>
+  <g fill="#f2f2f7" font-family="monospace" font-size="20" text-anchor="middle"><text x="102" y="257">source</text><text x="262" y="257">tokens</text><text x="422" y="257">AST</text><text x="582" y="257">output</text><text x="350" y="90" fill="#89b4fa" font-size="28">TEAPOTLANG</text></g>
+</svg>

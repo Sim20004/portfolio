@@ -241,9 +241,13 @@ a {
 .hero h1 {
     margin: 0;
 
+    display: inline-block;
+
     font-size: clamp(3rem, 9vw, 6rem);
 
-    line-height: 1;
+    line-height: 1.2;
+
+    padding-bottom: 0.12em;
 
     letter-spacing: -0.07em;
 
@@ -644,6 +648,68 @@ a {
 
 
 /* =========================
+   CASE STUDIES
+   ========================= */
+
+.case-study-grid,
+.writing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.case-study-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.case-study-card > img {
+    width: min(100%, 440px);
+    height: auto;
+    aspect-ratio: 7 / 5;
+    padding: 0.75rem;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+    background: var(--surface);
+    border-radius: 8px;
+}
+
+.case-study-card > div {
+    align-self: center;
+}
+
+.case-study-card h3,
+.writing-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.case-study-card p,
+.writing-card p {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.case-study-detail {
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--border);
+}
+
+.case-study-detail strong,
+.impact-note strong {
+    color: var(--text);
+}
+
+
+/* =========================
    CLIENT WORK
    ========================= */
 
@@ -694,6 +760,13 @@ a {
     font-size: 0.85rem;
 }
 
+.client-info .impact-note {
+    margin: 0 0 1.2rem;
+    color: #777e98;
+    font-size: 0.72rem;
+    line-height: 1.6;
+}
+
 .site-preview {
     height: 320px;
 
@@ -715,6 +788,35 @@ a {
     border: 0;
 
     background: white;
+}
+
+
+/* =========================
+   WRITING
+   ========================= */
+
+.writing-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.writing-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.writing-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+}
+
+.writing-card .project-link {
+    margin-top: auto;
 }
 
 
@@ -909,6 +1011,11 @@ footer a:hover {
         grid-template-columns: 1fr 1fr;
     }
 
+    .case-study-grid,
+    .writing-grid {
+        grid-template-columns: 1fr;
+    }
+
     .client-card {
         grid-template-columns: 1fr;
     }
@@ -993,6 +1100,15 @@ footer a:hover {
 
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .case-study-card {
+        grid-template-columns: 1fr;
+    }
+
+    .case-study-card > img {
+        width: 100%;
+        max-height: none;
     }
 
     .skill-card {
@@ -1153,6 +1269,16 @@ footer a:hover {
   color: #777e98;
 }
 
+.heatmap-fallback {
+        margin: -0.25rem 0 1rem;
+        color: #777e98;
+        font-size: 0.72rem;
+}
+
+.heatmap-fallback a {
+        color: var(--accent);
+}
+
 .github-activity {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1194,6 +1320,61 @@ footer a:hover {
     color: var(--accent);
     font-size: 1.35rem;
     line-height: 1;
+}
+
+.language-card {
+    grid-column: 1 / -1;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.language-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+    color: #777e98;
+    font-size: 0.68rem;
+}
+
+.language-bars {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.language-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 24px;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+.language-row strong {
+    color: var(--text);
+    text-align: right;
+}
+
+.language-track {
+    height: 7px;
+    overflow: hidden;
+    background: var(--bg-soft);
+    border-radius: 4px;
+}
+
+.language-track i {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    border-radius: inherit;
+}
+
+.language-empty {
+    color: #777e98;
+    font-size: 0.72rem;
 }
 
 .activity-card {
@@ -1258,35 +1439,6 @@ footer a:hover {
 .heatmap-weeks {
     display: flex;
     gap: var(--hm-gap);
-}
-
-.heatmap-months {
-    position: relative;
-    height: 14px;
-    margin-left: var(--hm-daylabel-width);
-}
-
-.heatmap-months span {
-    position: absolute;
-    top: 0;
-    font-size: 10px;
-    color: var(--muted);
-    white-space: nowrap;
-}
-
-.heatmap-daylabels {
-    width: var(--hm-daylabel-width);
-    flex: 0 0 var(--hm-daylabel-width);
-    display: flex;
-    flex-direction: column;
-    gap: var(--hm-gap);
-}
-
-.heatmap-daylabels span {
-    height: var(--hm-cell);
-    line-height: var(--hm-cell);
-    font-size: 9px;
-    color: #777e98;
 }
 
 .heatmap-weeks {
@@ -1405,6 +1557,10 @@ footer a:hover {
     }
 
     .github-stats {
+        grid-column: 1 / -1;
+    }
+
+    .language-card {
         grid-column: 1 / -1;
     }
 

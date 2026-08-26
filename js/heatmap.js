@@ -3,11 +3,6 @@
 
   var USERNAME = "Sim20004";
   var DAY_MS = 24 * 60 * 60 * 1000;
-  var MONTH_LABELS = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-  ];
-
   var root = document.getElementById("commit-heatmap");
   if (!root) return;
 
@@ -15,7 +10,7 @@
     liveBadge: document.getElementById("heatmap-live-badge"),
     profileLink: document.getElementById("heatmap-profile-link"),
     total: document.getElementById("heatmap-total"),
-    months: document.getElementById("heatmap-months"),
+    fallback: document.getElementById("heatmap-fallback"),
     weeks: document.getElementById("heatmap-weeks"),
     tooltip: document.getElementById("heatmap-tooltip"),
   };
@@ -96,23 +91,7 @@
     // Total line
     els.total.innerHTML = "<strong>" + total.toLocaleString() + "</strong> contributions in the last year";
     els.liveBadge.hidden = false;
-
-    // Month labels are positioned after the week columns render so responsive
-    // spacing and cell sizes remain aligned.
-    els.months.innerHTML = "";
-    var lastMonth = null;
-    weeks.forEach(function (week, wi) {
-      var firstReal = week.find(function (d) { return d !== null; });
-      if (!firstReal) return;
-      var m = new Date(firstReal.date + "T00:00:00").getMonth();
-      if (m !== lastMonth) {
-        var span = document.createElement("span");
-        span.textContent = MONTH_LABELS[m];
-        span.dataset.week = String(wi);
-        els.months.appendChild(span);
-        lastMonth = m;
-      }
-    });
+    els.fallback.hidden = true;
 
     // Weeks grid
     els.weeks.innerHTML = "";
@@ -140,10 +119,6 @@
       els.weeks.appendChild(weekEl);
     });
 
-    Array.prototype.forEach.call(els.months.children, function (span) {
-      var week = els.weeks.children[Number(span.dataset.week)];
-      span.style.left = week ? week.offsetLeft + "px" : "0px";
-    });
   }
 
   function load(username) {
@@ -170,8 +145,8 @@
       })
       .catch(function () {
         els.total.textContent = "Contribution history is unavailable right now.";
+        els.fallback.hidden = false;
         els.weeks.innerHTML = "";
-        els.months.innerHTML = "";
       });
   }
 
@@ -181,9 +156,11 @@
   var apiHeaders = { Accept: "application/vnd.github+json" };
   var stats = {
     repos: document.getElementById("github-repos"),
-    stars: document.getElementById("github-stars"),
-    followers: document.getElementById("github-followers"),
-    following: document.getElementById("github-following"),
+    rustRepos: document.getElementById("github-rust-repos"),
+    pythonRepos: document.getElementById("github-python-repos"),
+    prs: document.getElementById("github-prs"),
+    languageTotal: document.getElementById("github-language-total"),
+    languageBars: document.getElementById("github-language-bars"),
     prTitle: document.getElementById("github-pr-title"),
     prMeta: document.getElementById("github-pr-meta"),
     commitTitle: document.getElementById("github-commit-title"),
@@ -211,20 +188,33 @@
 
   function loadGitHubStats() {
     Promise.all([
-      fetchGitHub("/users/" + USERNAME),
       fetchGitHub("/users/" + USERNAME + "/repos?per_page=100&sort=updated"),
       fetchGitHub("/search/issues?q=author:" + USERNAME + "+type:pr&sort=updated&order=desc&per_page=1"),
       fetchGitHub("/search/commits?q=author:" + USERNAME + "&sort=committer-date&order=desc&per_page=1"),
     ]).then(function (results) {
-      var profile = results[0];
-      var repos = results[1];
-      var prs = results[2];
-      var commits = results[3];
-      var stars = repos.reduce(function (totalStars, repo) { return totalStars + repo.stargazers_count; }, 0);
-      setText(stats.repos, profile.public_repos);
-      setText(stats.stars, stars);
-      setText(stats.followers, profile.followers);
-      setText(stats.following, profile.following);
+      var repos = results[0];
+      var prs = results[1];
+      var commits = results[2];
+      var languageCounts = {};
+      repos.forEach(function (repo) {
+        if (repo.language) languageCounts[repo.language] = (languageCounts[repo.language] || 0) + 1;
+      });
+      var languages = Object.keys(languageCounts).sort(function (a, b) {
+        return languageCounts[b] - languageCounts[a];
+      });
+      var languageTotal = languages.reduce(function (total, language) { return total + languageCounts[language]; }, 0);
+      setText(stats.repos, repos.length);
+      setText(stats.rustRepos, languageCounts.Rust || 0);
+      setText(stats.pythonRepos, languageCounts.Python || 0);
+      setText(stats.prs, prs.total_count || 0);
+      setText(stats.languageTotal, languageTotal + " repos classified");
+      stats.languageBars.innerHTML = "";
+      languages.slice(0, 5).forEach(function (language) {
+        var row = document.createElement("div");
+        row.className = "language-row";
+        row.innerHTML = "<span>" + language + "</span><div class=\"language-track\"><i style=\"width: " + Math.round(languageCounts[language] / languageTotal * 100) + "%\"></i></div><strong>" + languageCounts[language] + "</strong>";
+        stats.languageBars.appendChild(row);
+      });
 
       if (prs.items && prs.items.length) {
         var pr = prs.items[0];
@@ -247,9 +237,11 @@
       }
     }).catch(function () {
       setText(stats.repos, "--");
-      setText(stats.stars, "--");
-      setText(stats.followers, "--");
-      setText(stats.following, "--");
+      setText(stats.rustRepos, "--");
+      setText(stats.pythonRepos, "--");
+      setText(stats.prs, "--");
+      setText(stats.languageTotal, "Unavailable");
+      stats.languageBars.innerHTML = "<span class=\"language-empty\">Language data is unavailable right now.</span>";
       setText(stats.prTitle, "GitHub activity unavailable");
       setText(stats.prMeta, "Try again later");
       setText(stats.commitTitle, "GitHub activity unavailable");

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeapotLang case study | Simarpreet Singh</title>
+    <link rel="stylesheet" href="../../css/writing.css">
+</head>
+<body>
+<a class="back-link" href="../../index.html#projects">← Back to projects</a>
+<main>
+    <p class="eyebrow">CASE STUDY / COMPILERS</p>
+    <h1>From source text to executable ideas</h1>
+    <p class="lede">How I approached the early stages of TeapotLang while the language design was still changing.</p>
+    <article>
+        <h2>The problem</h2>
+        <p>A new language is easy to describe and difficult to keep coherent. I wanted TeapotLang to be memory-efficiency-oriented, but I also needed a compiler structure that I could understand and change quickly.</p>
+        <h2>The approach</h2>
+        <p>I split the work into explicit stages: source text becomes tokens, tokens become an abstract syntax tree, and later stages can operate on that tree without re-parsing the original input. This kept each decision local and made debugging more concrete.</p>
+        <p>The lexer owns character-level decisions, while the parser owns structure. That separation means a syntax error can point back to a useful token instead of exposing an implementation detail from a later stage. I also kept the tree deliberately small so the representation reflected the language I actually understood.</p>
+        <h2>The trade-offs</h2>
+        <p>It would have been tempting to optimise early or add a large feature set. I chose clarity first: straightforward data structures, explicit stages, and tests around the pieces that were already stable. The result is easier to extend because each new language feature has a visible place to belong.</p>
+        <h2>What I learned</h2>
+        <p>Compiler errors are part of the language design, not an afterthought. Giving tokens useful positions and keeping the parser's responsibilities narrow made experiments much easier to evaluate. The biggest lesson was that a compiler is not one enormous transformation: it is a sequence of understandable contracts.</p>
+    </article>
+</main>
+</body>
+</html>
