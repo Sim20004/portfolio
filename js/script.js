@@ -65,7 +65,7 @@ document.querySelectorAll("[data-os-terminal]").forEach((terminal) => {
     })
 })
 
-document.querySelectorAll("[data-compiler]").forEach((compiler) => {
+document.querySelectorAll("[data-legacy-compiler]").forEach((compiler) => {
     const source = compiler.querySelector("textarea")
     const outputs = Object.fromEntries([...compiler.querySelectorAll(".compiler-output")].map((element) => [element.dataset.output, element]))
     const stage = compiler.querySelector(".compile-stage")

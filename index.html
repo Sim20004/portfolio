@@ -43,6 +43,7 @@
 
     <!-- JavaScript Execution -->
     <script src="js/script.js?v=5" defer></script>
+    <script src="js/teapot-demo.js?v=1" defer></script>
 
     <!-- Structured Data (JSON-LD Schema) for Identity & Disambiguation -->
     <script type="application/ld+json">
@@ -456,7 +457,7 @@
                 <div class="project-preview compiler-preview" data-compiler>
                     <div class="preview-toolbar">
                         <span class="preview-kicker">LIVE PREVIEW</span>
-                        <span class="preview-status"><i></i> browser simulation</span>
+                        <span class="preview-status"><i></i> Pyodide WASM backend</span>
                     </div>
                     <label class="editor-label" for="teapot-source">main.tp</label>
                     <textarea id="teapot-source" spellcheck="false">$MEM-GC
@@ -464,7 +465,7 @@ fc main()!void {
     exit 0.
 }</textarea>
                     <div class="compiler-actions">
-                        <button class="preview-button" type="button">Compile source</button>
+                        <button class="preview-button" type="button">Compile</button>
                         <span class="compile-stage">ready</span>
                     </div>
                     <div class="compiler-tabs" role="tablist">

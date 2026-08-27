@@ -906,6 +906,75 @@ textarea {
     white-space: pre-wrap;
     overflow: auto;
     text-align: left;
+    overscroll-behavior: contain;
+}
+
+.compiler-output table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 0.63rem;
+    white-space: nowrap;
+}
+
+.compiler-output:has(table) {
+    padding: 0;
+}
+
+.compiler-output th,
+.compiler-output td {
+    padding: 0.42rem 0.62rem;
+    border-bottom: 1px solid rgba(205, 214, 244, 0.1);
+    text-align: left;
+}
+
+.compiler-output th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    color: #89b4fa;
+    background: #111827;
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.token-type {
+    color: #f9e2af;
+}
+
+.ast-tree,
+.ast-tree ul {
+    margin: 0;
+    padding-left: 0.8rem;
+    list-style: none;
+}
+
+.ast-tree {
+    width: max-content;
+    min-width: 100%;
+    padding: 0.7rem 0.8rem 1rem;
+    color: #cdd6f4;
+    white-space: nowrap;
+}
+
+.ast-tree ul {
+    border-left: 1px solid rgba(137, 180, 250, 0.22);
+}
+
+.ast-row {
+    display: flex;
+    gap: 0.45rem;
+    min-height: 1.35rem;
+    align-items: baseline;
+}
+
+.ast-branch {
+    color: #777e98;
+}
+
+.ast-value {
+    color: #a6e3a1;
 }
 
 .symbol-table-output {
@@ -914,7 +983,7 @@ textarea {
 }
 
 .symbol-table-output table {
-    width: 100%;
+    width: max-content;
     min-width: 360px;
     border-collapse: collapse;
     color: #cdd6f4;
@@ -932,8 +1001,9 @@ textarea {
 .symbol-table-output th {
     position: sticky;
     top: 0;
+    z-index: 1;
     color: #89b4fa;
-    background: #171e29;
+    background: #111827;
     font-size: 0.6rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
