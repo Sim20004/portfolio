@@ -1,5 +1,6 @@
 const TEAPOT_PYODIDE = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/"
-const TEAPOT_MODULES = ["__init__.py", "debug.py", "lexer.py", "parser.py", "semantic.py", "teapot_ast.py", "tokens.py", "web.py"]
+const TEAPOT_MODULES = ["debug.py", "lexer.py", "parser.py", "semantic.py", "teapot_ast.py", "tokens.py", "web.py"]
+const TEAPOT_SOURCE = new URL("teapot-lang/src/teapot/", document.baseURI)
 
 const loadTeapotCompiler = async () => {
     if (window.teapotCompiler) return window.teapotCompiler
@@ -14,8 +15,9 @@ const loadTeapotCompiler = async () => {
             })
             const pyodide = await window.loadPyodide({ indexURL: TEAPOT_PYODIDE })
             pyodide.FS.mkdirTree("/teapot/src/teapot")
+            pyodide.FS.writeFile("/teapot/src/teapot/__init__.py", "")
             await Promise.all(TEAPOT_MODULES.map(async (module) => {
-                const response = await fetch(`teapot-lang/src/teapot/${module}`)
+                const response = await fetch(new URL(module, TEAPOT_SOURCE))
                 if (!response.ok) throw new Error(`Could not load compiler module ${module}`)
                 pyodide.FS.writeFile(`/teapot/src/teapot/${module}`, await response.text())
             }))
