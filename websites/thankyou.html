@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PP2JSF34');</script>
-<!-- End Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-PP2JSF34');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.png">
@@ -85,26 +88,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 1rem;
         }
 
-        .countdown {
-            margin: 2rem auto;
-            width: 110px;
-            height: 110px;
-            border: 6px solid #e2e8f0;
-            border-top-color: #2563eb;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: spin 1s linear infinite;
-        }
-
-        .countdown span {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2563eb;
-            animation: counterSpin 1s linear infinite;
-        }
-
         .button {
             display: inline-block;
             background: #2563eb;
@@ -129,18 +112,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #64748b;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes counterSpin {
-            to {
-                transform: rotate(-360deg);
-            }
-        }
-
         @media (max-width: 700px) {
             .thank-you h1 {
                 font-size: 2.2rem;
@@ -150,84 +121,69 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PP2JSF34"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<nav>
-    <div class="container nav-content">
-        <div class="logo">
-            Simarpreet's Websites
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PP2JSF34"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                Simarpreet's Websites
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
+    <main>
+        <div class="thank-you">
 
-<main>
+            <h1>Thank you!</h1>
 
-    <div class="thank-you">
+            <p>
+                Thanks for getting in touch. I'm opening WhatsApp
+                so you can send me a message.
+            </p>
 
-        <h1>Thank you!</h1>
+            <a
+                href="https://wa.me/message/UL7KZAYIAYBPL1"
+                class="button"
+            >
+                Open WhatsApp Now
+            </a>
 
-        <p>
-            Thanks for getting in touch. I'm opening WhatsApp
-            so you can send me a message.
-        </p>
-
-        <div class="countdown">
-            <span id="countdown">5</span>
         </div>
+    </main>
 
-        <p>
-            Opening WhatsApp in <strong><span id="seconds">5</span></strong>
-            seconds...
-        </p>
+    <footer>
+        © 2026 Simarpreet's Websites
+    </footer>
 
-        <a
-            href="https://wa.me/message/UL7KZAYIAYBPL1"
-            class="button"
-        >
-            Open WhatsApp Now
-        </a>
+    <script>
+        /*
+         * Record the conversion event in Google Tag Manager.
+         */
+        window.dataLayer = window.dataLayer || [];
 
-    </div>
+        window.dataLayer.push({
+            event: "whatsapp_contact"
+        });
 
-</main>
-
-
-<footer>
-    © 2026 Simarpreet's Websites
-</footer>
-
-<script>
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        event: "whatsapp_contact"
-    });
-</script>
-
-<script>
-    const whatsappURL = "https://wa.me/message/UL7KZAYIAYBPL1";
-
-    let seconds = 5;
-
-    const countdown = document.getElementById("countdown");
-    const secondsText = document.getElementById("seconds");
-
-    const timer = setInterval(() => {
-
-        seconds--;
-
-        countdown.textContent = seconds;
-        secondsText.textContent = seconds;
-
-        if (seconds <= 0) {
-            clearInterval(timer);
-            window.location.href = whatsappURL;
-        }
-
-    }, 1000);
-</script>
+        /*
+         * Give GTM/Google Ads time to process the event,
+         * then automatically open WhatsApp.
+         */
+        setTimeout(function () {
+            window.location.href =
+                "https://wa.me/message/UL7KZAYIAYBPL1";
+        }, 5000);
+    </script>
 
 </body>
 </html>
