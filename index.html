@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Simarpreet Singh | Systems & Rust Software Engineer | Walsall, UK</title>
+    <title>Simarpreet Singh | Systems Software Engineer | Walsall, UK</title>
     <meta 
         name="description" 
-        content="Simarpreet Singh is a Walsall, UK-based software developer specializing in Rust systems programming, OS kernels (TeapotOS), compilers (TeapotLang), and web development."
+        content="Simarpreet Singh is a Walsall, UK-based software developer specializing in systems programming, OS kernels (TeapotOS), compilers (TeapotLang), and web development."
     >
-    <meta name="keywords" content="Simarpreet Singh, Systems Developer Walsall, Rust Engineer West Midlands, TeapotOS, TeapotLang, Compiler Developer UK, FOSSil Chat">
+    <meta name="keywords" content="Simarpreet Singh, Systems Developer Walsall, Software Engineer West Midlands, TeapotOS, TeapotLang, Compiler Developer UK, FOSSil Chat">
     <meta name="author" content="Simarpreet Singh">
     <link rel="canonical" href="https://simarpreetsingh.org">
     <link rel="icon" href="images/favicon.svg">
@@ -19,24 +19,24 @@
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://simarpreetsingh.org">
-    <meta property="og:title" content="Simarpreet Singh | Systems & Rust Software Engineer | Walsall, UK">
+    <meta property="og:title" content="Simarpreet Singh | Systems Software Engineer | Walsall, UK">
     <meta 
         property="og:description" 
-        content="Portfolio of Simarpreet Singh — Software developer in Walsall, UK focused on systems programming, compilers, OS kernels, async Rust, and web development."
+        content="Portfolio of Simarpreet Singh — Software developer in Walsall, UK focused on systems programming, compilers, OS kernels, and web development."
     >
     <meta property="og:image" content="https://simarpreetsingh.org/images/preview.png?v=2">
-    <meta property="og:image:alt" content="Simarpreet Singh Portfolio - Systems & Rust Software Engineer">
+    <meta property="og:image:alt" content="Simarpreet Singh Portfolio - Systems Software Engineer">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://simarpreetsingh.org">
-    <meta name="twitter:title" content="Simarpreet Singh | Systems & Rust Software Engineer | Walsall, UK">
+    <meta name="twitter:title" content="Simarpreet Singh | Systems Software Engineer | Walsall, UK">
     <meta 
         name="twitter:description" 
-        content="Portfolio of Simarpreet Singh — Software developer in Walsall, UK focused on systems programming, compilers, OS kernels, async Rust, and web development."
+        content="Portfolio of Simarpreet Singh — Software developer in Walsall, UK focused on systems programming, compilers, OS kernels, and web development."
     >
     <meta name="twitter:image" content="https://simarpreetsingh.org/images/preview.png?v=2">
-    <meta name="twitter:image:alt" content="Simarpreet Singh Portfolio - Systems & Rust Software Engineer">
+    <meta name="twitter:image:alt" content="Simarpreet Singh Portfolio - Systems Software Engineer">
 
     <!-- Preload Assets -->
     <link rel="preload" href="css/style.css?v=5" as="style">
@@ -453,6 +453,7 @@
                     <span>Python</span>
                     <span>Compiler</span>
                     <span>AST</span>
+                    <span id="version-badge">Loading version...</span>
                 </div>
                 
                 <div class="project-preview compiler-preview" data-compiler>
@@ -462,9 +463,10 @@
                     </div>
                     <label class="editor-label" for="teapot-source">main.tp</label>
                     <textarea id="teapot-source" spellcheck="false">$MEM-GC
-fc main()!void {
-    exit 0.
-}</textarea>
+val mui8 foo = 1.
+val mui8 bar = 2.
+val mui8 baz = foo + bar.
+</textarea>
                     <div class="compiler-actions">
                         <button class="preview-button" type="button">Compile</button>
                         <span class="compile-stage">ready</span>
@@ -493,10 +495,22 @@ fc main()!void {
                     <a class="project-link" href="files/writing/lexer-design.html?from=projects">
                         Read the lexer note <span>↗</span>
                     </a>
+
+                    <a
+                        class="project-link"
+                        href="https://teapotlang.simarpreetsingh.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View website
+                        <span>↗</span>
+                    </a>
                 </div>
 
             </div>
 
+        <script src="js/teapot-lang-release.js" defer></script> 
+        
         </article>
 
 
