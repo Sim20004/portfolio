@@ -330,7 +330,7 @@
 
                 <span class="project-label">SYSTEMS</span>
 
-                <h3>TeapotOS - Open Source</h3>
+                <h3>TeapotOS</h3>
 
                 <p>
                     An experimental operating system exploring compatibility
@@ -407,7 +407,7 @@
 
                 <span class="project-label">PROGRAMMING LANGUAGES</span>
 
-                <h3>TeapotLang - Open Source</h3>
+                <h3>TeapotLang</h3>
 
                 <p>
                     A memory-efficiency-oriented programming language and
@@ -492,47 +492,76 @@ val mui8 baz = foo + bar.
 
             <div class="project-image">
                 <img
-                    src="images/projects/tenberal.jpeg"
-                    alt="Tenberal News logo"
+                    src="images/projects/fossil.svg"
+                    alt="FOSSil Chat logo"
                     loading="lazy"
                 >
             </div>
 
             <div class="project-content">
 
-                <span class="project-label">WEB BACKEND</span>
+                <span class="project-label">NETWORKING</span>
 
-                <h3>Tenberal News - Proprietary</h3>
+                <h3>FOSSil Chat</h3>
 
                 <p>
-                    Developed the backend for a CRUD news platform, including user authentication, article management, and reporter management. Frontend developed by a separate developer.
+                    A privacy-focused chat platform exploring networking, C++, and open-source
+                    software development - developed with TsarGalxyGaming (Stefan Mitchell) on Codeberg.
                 </p>
 
+                <p class="project-next"><strong>Next:</strong> stronger end-to-end encryption, Markdown, and federated servers.</p>
+
                 <div class="tech-tags">
-                    <span>PHP</span>
-                    <span>MySQL</span>
-                    <span>Linux Shell</span>
-                    <span>Nginx</span>
-                    <span>Server Management</span>
+                    <span>C++</span>
                 </div>
                 
                 <div class="project-preview chat-preview" data-chat>
-                    <iframe
-                        src="https://tenberalnews.simarpreetsingh.org/"
-                        title="Tenberal News live preview"
-                        loading="lazy">
-                    </iframe>
+                    <div class="preview-toolbar">
+                        <span class="preview-kicker">LIVE PREVIEW</span>
+                        <span class="preview-status"><i></i> local relay</span>
+                        <button class="chat-reset" type="button" data-chat-reset>reset terminals</button>
+                    </div>
+                    <div class="chat-clients">
+                        <section class="chat-client client-a">
+                            <header class="terminal-titlebar"><span class="terminal-lights"><i></i><i></i><i></i></span><span>fossil-client · terminal A</span></header>
+                            <div class="chat-messages fossil-terminal-output" aria-live="polite"></div>
+                            <form class="chat-form">
+                                <label for="fossil-a-command">FOSSil Chat input</label>
+                                <input id="fossil-a-command" type="text" autocomplete="off" aria-label="Client A command">
+                                <button type="submit" aria-label="Send client A message">&gt;</button>
+                            </form>
+                        </section>
+                        <section class="chat-client client-b">
+                            <header class="terminal-titlebar"><span class="terminal-lights"><i></i><i></i><i></i></span><span>fossil-client · terminal B</span></header>
+                            <div class="chat-messages fossil-terminal-output" aria-live="polite"></div>
+                            <form class="chat-form">
+                                <label for="fossil-b-command">FOSSil Chat input</label>
+                                <input id="fossil-b-command" type="text" autocomplete="off" aria-label="Client B command">
+                                <button type="submit" aria-label="Send client B message">&gt;</button>
+                            </form>
+                        </section>
+                    </div>
                 </div>
 
                 <div class="project-links">
 
                     <a
                         class="project-link"
-                        href="https://tenberalnews.simarpreetsingh.org/"
+                        href="https://github.com/Sim20004/FOSSil-Chat"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Live Site
+                        GitHub (Read-only mirror)
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://codeberg.org/FOSSil/FOSSil_Chat"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Codeberg
                         <span>↗</span>
                     </a>
                 </div>
