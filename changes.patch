@@ -1,0 +1,190 @@
+diff --git a/files/Simarpreet_Singh_CV.odt b/files/Simarpreet_Singh_CV.odt
+index 69ba865..d9d66d2 100644
+--- a/files/Simarpreet_Singh_CV.odt
++++ b/files/Simarpreet_Singh_CV.odt
+@@ -89,19 +89,25 @@ First place in Primary Category nationwide.
+ 
+ 26/10/2025
+ 
+-In practice: Rust builds the Teapot compiler; Python and Linux
+-run the self-hosted infrastructure behind Vlyra AI; HTML/CSS
+-shape the portfolio site; Git, GitHub, Docker, Nginx, and
+-Cloudflare handle version control and deployment across all of
+-the projects below.
++In practice:Pythonbuilds the Teapot compiler; Linux, PHP, and
++MySQLrun the self-hosted infrastructure behindTenberal News;
++HTML/CSS/JSshape the portfolio site; Git, GitHub, Docker,
++Nginx, and Cloudflare handle version control and deployment
++across all of the projects below.
+ 
+ Projects � repositories are linked in portfolio above.
+ 
+-Tenberal News(In production)
++Tenberal News(Live)
+ 
+ Designed a proprietary, professional CRUD news platform and
+ implemented the backend.
+ 
++Implemented WebAuthn passkey authentication with cross-browser
++compatibility fixes
++
++Built a World Cup statistics dashboard integrating a third-party
++sports API
++
+ Worked with servers, PHP, Nginx, and Linux to host the site.
+ 
+ TeapotOS(Ongoing)
+@@ -109,14 +115,20 @@ TeapotOS(Ongoing)
+ Wrote an operating system from scratch in Assembly, aiming to
+ support Windows, Linux, and MacOS binaries
+ 
++Implemented a small, working, 32-bit kernel and a fully
++functional bootloader
++
+ Teapot Programming Language(Ongoing)
+ 
+ Designed and implemented a custom programming language with
+ lexical analyser, parser, and abstract syntax tree
+ 
++Built a 9000+ test (100% code coverage) integration/unit suite
++covering the compiler pipeline, CLI and individual aspects
++
+ Personal Portfolio Site(Ongoing)
+ 
+-Designed and developedapersonal website
++Designed and developed a personal website
+ 
+ Implemented responsive design and SEO optimisation
+ 
+@@ -171,7 +183,3 @@ Intermediate proficiency
+ 
+ Participant in the Mandarin Excellence Programme (MEP)
+ 
+-References
+-
+-Available upon request
+-
+diff --git a/files/Simarpreet_Singh_CV.pdf b/files/Simarpreet_Singh_CV.pdf
+index ca20ea2..54637a6 100644
+--- a/files/Simarpreet_Singh_CV.pdf
++++ b/files/Simarpreet_Singh_CV.pdf
+@@ -22,11 +22,11 @@ Grammar School,   development, Linux administration, and self-hosting. Creator o
+ • Java                       • Nginx
+                              • Cloudflare
+ 
+-In practice: Rust builds the Teapot compiler; Python and Linux run the self-hosted infrastructure behind Vlyra AI;
+-HTML/CSS shape the portfolio site; Git, GitHub, Docker, Nginx, and Cloudflare handle version control and deployment
+-across all of the projects below.
++In practice: Python builds the Teapot compiler; Linux, PHP, and MySQL run the self-hosted infrastructure behind Tenberal
++News; HTML/CSS/JS shape the portfolio site; Git, GitHub, Docker, Nginx, and Cloudflare handle version control and
++deployment across all of the projects below.
+ 
+-                       Qualifications & Achievements
++                         Qualifications & Achievements
+ 
+    Computer Science                     Music                        Mandarin
+ 
+@@ -47,39 +47,51 @@ in Computer Science (ELCS)   (Practical) with Distinction,
+                                                                       26/10/2025
+ Projects – repositories are linked in portfolio above.
+ 
+-Tenberal News (In production)                             TeapotOS (Ongoing)
++Tenberal News (Live)                                         TeapotOS (Ongoing)
++
++• Designed a proprietary, professional CRUD news             • Wrote an operating system from
++                                                                scratch in Assembly, aiming to support
++    platform and implemented the backend.                       Windows, Linux, and MacOS binaries
++
++• Implemented WebAuthn passkey authentication with           • Implemented a small, working, 32-bit
++                                                                kernel and a fully functional
++    cross-browser compatibility fixes                           bootloader
++
++• Built a World Cup statistics dashboard integrating a
++
++    third-party sports API
+ 
+-• Designed a proprietary, professional CRUD news          • Wrote an operating system from
+-    platform and implemented the backend.                    scratch in Assembly, aiming to support
+-                                                             Windows, Linux, and MacOS binaries
+ • Worked with servers, PHP, Nginx, and Linux to host the
++
+     site.
+ 
+-Teapot Programming Language (Ongoing)                     Personal Portfolio Site (Ongoing)
++Teapot Programming Language (Ongoing)                        Personal Portfolio Site (Ongoing)
+ 
+-• Designed and implemented a custom programming           • Designed and developed a
+-   language with lexical analyser, parser, and abstract      personal website
++• Designed and implemented a custom programming              • Designed and developed a
++   language with lexical analyser, parser, and abstract         personal website
+    syntax tree
+-                                                          • Implemented responsive design
+-                                                             and SEO optimisation
++                                                             • Implemented responsive design
++• Built a 9000+ test (100% code coverage) integration/unit      and SEO optimisation
++   suite covering the compiler pipeline, CLI and individual
++   aspects
+ 
+-Technical Experience                                     Leadership and Public
+-                                                         Speaking
++Technical Experience                        Leadership and Public
++                                            Speaking
+     - Self-hosted Linux servers
+-    - Docker container deployment and                        - Invited to deliver a speech to
+-                                                                 officials and representatives
+-        management                                               involved in UK-China relations
++    - Docker container deployment and           - Invited to deliver a speech to
++                                                    officials and representatives
++        management                                  involved in UK-China relations
+ 
+-    - Nginx web server configuration                         - Presented speech in both
+-    - Cloudflare DNS and domain management                       Mandarin and English
++    - Nginx web server configuration            - Presented speech in both
++    - Cloudflare DNS and domain management          Mandarin and English
+     - Git and GitHub workflows
+ 
+-   Punjabi              Languages                                  Mandarin
++   Punjabi      Languages                                             Mandarin
+ 
+-Native speaker             English                           Intermediate proficiency
+-                                                          Participant in the Mandarin
+-                        Native speaker                    Excellence Programme
+-                                                          (MEP)
++Native speaker     English                                      Intermediate proficiency
++                                                             Participant in the Mandarin
++                Native speaker                               Excellence Programme
++                                                             (MEP)
+ 
+                                     Interests
+ 
+@@ -89,8 +101,4 @@ Native speaker             English                           Intermediate profic
+ - Programming Language/Compiler Design
+ - Piano, Clarinet, and Saxophone
+ - Cybersecurity
+-
+-References
+-
+-Available upon request
+ 
+diff --git a/index.html b/index.html
+index c50ca65..964c3fd 100644
+--- a/index.html
++++ b/index.html
+@@ -138,7 +138,7 @@
+             </a>
+ 
+             <a
+-                href="files/Simarpreet_Singh_CV.pdf?v=7"
++                href="files/Simarpreet_Singh_CV.pdf?v=8"
+                 class="button button-secondary"
+                 target="_blank"
+                 rel="noopener noreferrer"
+@@ -882,7 +882,7 @@ val mui8 baz = foo + bar.
+             </a>
+ 
+             <a
+-                href="files/Simarpreet_Singh_CV.pdf?v=7"
++                href="files/Simarpreet_Singh_CV.pdf?v=8"
+                 class="button button-secondary"
+                 target="_blank"
+                 rel="noopener noreferrer"
